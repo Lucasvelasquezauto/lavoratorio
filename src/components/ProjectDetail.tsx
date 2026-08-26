@@ -25,7 +25,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
       {project.image && (
         <ScrollReveal className="mt-8">
-          <div className="relative aspect-[4/3] sm:aspect-[16/9] hairline rounded-lg overflow-hidden bg-[var(--lab-paper)]">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] hairline rounded-lg overflow-hidden bg-[var(--lab-bg-2)]">
             <Image
               src={project.image}
               alt={project.title[lang as Lang]}

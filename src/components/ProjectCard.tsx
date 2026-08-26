@@ -21,7 +21,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         style={{ borderColor: "var(--lab-line)" }}
       >
         {project.image ? (
-          <div className="relative aspect-[4/3] bg-[var(--lab-paper)]">
+          <div className="relative aspect-[4/3] bg-[var(--lab-bg-2)]">
             <Image
               src={project.image}
               alt={project.title[lang as Lang]}
