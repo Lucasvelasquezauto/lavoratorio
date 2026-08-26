@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { useLang, Lang } from "@/lib/i18n";
 import { Project } from "@/data/projects";
@@ -21,12 +22,19 @@ export default function ProjectCard({ project }: { project: Project }) {
         style={{ borderColor: "var(--lab-line)" }}
       >
         {project.image ? (
-          <div className="relative aspect-[4/3] bg-[var(--lab-bg-2)]">
+          <div
+            className="lab-media relative aspect-[16/10] bg-[var(--lab-bg-2)]"
+            style={{ "--accent": accent } as CSSProperties}
+          >
+            <span className="lab-corner lab-corner-tl" />
+            <span className="lab-corner lab-corner-tr" />
+            <span className="lab-corner lab-corner-bl" />
+            <span className="lab-corner lab-corner-br" />
             <Image
               src={project.image}
               alt={project.title[lang as Lang]}
               fill
-              className="object-contain p-6"
+              className="object-contain p-10 grayscale-[65%] opacity-80 scale-95 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-100"
               sizes="(max-width: 640px) 100vw, 50vw"
             />
           </div>

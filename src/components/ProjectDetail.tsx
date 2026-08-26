@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { useLang, Lang } from "@/lib/i18n";
 import { Project } from "@/data/projects";
 import FlowDiagram from "./FlowDiagram";
@@ -25,12 +26,19 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
       {project.image && (
         <ScrollReveal className="mt-8">
-          <div className="relative aspect-[4/3] sm:aspect-[16/9] hairline rounded-lg overflow-hidden bg-[var(--lab-bg-2)]">
+          <div
+            className="lab-media relative aspect-[16/9] hairline rounded-lg bg-[var(--lab-bg-2)]"
+            style={{ "--accent": accent } as CSSProperties}
+          >
+            <span className="lab-corner lab-corner-tl" />
+            <span className="lab-corner lab-corner-tr" />
+            <span className="lab-corner lab-corner-bl" />
+            <span className="lab-corner lab-corner-br" />
             <Image
               src={project.image}
               alt={project.title[lang as Lang]}
               fill
-              className="object-contain p-8"
+              className="object-contain p-12 transition-transform duration-500 ease-out hover:scale-[1.03]"
               sizes="(max-width: 768px) 100vw, 768px"
             />
           </div>
