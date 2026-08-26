@@ -36,13 +36,23 @@ export default function SignatureCircuit() {
     const svg = svgRef.current;
     if (!svg) return;
     const paths = svg.querySelectorAll<SVGPathElement>(".circuit-line");
-    const nodes = svg.querySelectorAll<SVGCircleElement>(".circuit-node");
+    // The plain connector dots and the interactive category nodes are
+    // animated separately on purpose: the category nodes already carry a
+    // precise per-node transform-origin (set once via React, matching their
+    // own cx/cy) that the CSS hover/focus scale depends on. If GSAP's tween
+    // also touches `transformOrigin` on them (even just to clear it
+    // afterward), it strips that inline style from the DOM node directly —
+    // React never re-renders to restore it — leaving them scaling from the
+    // default SVG origin (the whole viewport's center) instead of their own
+    // center, which flings the far-from-center nodes off-canvas on hover.
+    // So: dots get transformOrigin as part of their tween (harmless, a
+    // circle's own bounding-box center is its cx/cy either way); category
+    // nodes only ever get `scale` from GSAP, never transformOrigin.
+    const dots = svg.querySelectorAll<SVGCircleElement>(".circuit-node-dot");
+    const catNodes = svg.querySelectorAll<SVGCircleElement>(".circuit-node-cat");
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) {
-      // Nodes are already at their resting scale by default; only skip the
-      // line-drawing animation so hover/focus scaling (CSS-driven) stays
-      // free of any leftover inline transform from GSAP.
       gsap.set(paths, { strokeDashoffset: 0 });
       return;
     }
@@ -59,20 +69,31 @@ export default function SignatureCircuit() {
       duration: 1.6,
       stagger: 0.25,
       ease: "power2.inOut",
-    }).fromTo(
-      nodes,
-      { scale: 0, transformOrigin: "center" },
-      {
-        scale: 1,
-        duration: 0.5,
-        stagger: 0.2,
-        ease: "back.out(3)",
-        // Clear GSAP's inline transform once the entrance finishes so the
-        // CSS hover/focus scale on the category nodes isn't blocked by it.
-        clearProps: "transform,transformOrigin",
-      },
-      "-=1.2"
-    );
+    })
+      .fromTo(
+        dots,
+        { scale: 0, transformOrigin: "center" },
+        {
+          scale: 1,
+          duration: 0.5,
+          stagger: 0.2,
+          ease: "back.out(3)",
+          clearProps: "transform,transformOrigin",
+        },
+        "-=1.2"
+      )
+      .fromTo(
+        catNodes,
+        { scale: 0 },
+        {
+          scale: 1,
+          duration: 0.5,
+          stagger: 0.2,
+          ease: "back.out(3)",
+          clearProps: "transform",
+        },
+        "<"
+      );
 
     return () => {
       tl.kill();
@@ -91,9 +112,9 @@ export default function SignatureCircuit() {
       <path className="circuit-line" d="M300 160 L420 160 L420 240" stroke="var(--lab-amber)" strokeWidth="2" />
       <path className="circuit-line" d="M420 160 L540 160 L540 100" stroke="var(--lab-cyan)" strokeWidth="2" />
 
-      <circle className="circuit-node" cx="180" cy="160" r="5" fill="var(--lab-ink)" />
-      <circle className="circuit-node" cx="300" cy="160" r="5" fill="var(--lab-ink)" />
-      <circle className="circuit-node" cx="420" cy="160" r="5" fill="var(--lab-ink)" />
+      <circle className="circuit-node-dot" cx="180" cy="160" r="5" fill="var(--lab-ink)" />
+      <circle className="circuit-node-dot" cx="300" cy="160" r="5" fill="var(--lab-ink)" />
+      <circle className="circuit-node-dot" cx="420" cy="160" r="5" fill="var(--lab-ink)" />
 
       {categoryNodes.map((node) => (
         <a
@@ -106,7 +127,7 @@ export default function SignatureCircuit() {
           {/* generous invisible hit area for easier hover/tap */}
           <circle cx={node.cx} cy={node.cy} r="22" fill="transparent" />
           <circle
-            className="circuit-node transition-transform duration-200 ease-out group-hover:scale-[2.2] group-focus-visible:scale-[2.2]"
+            className="circuit-node-cat transition-transform duration-200 ease-out group-hover:scale-[2.2] group-focus-visible:scale-[2.2]"
             cx={node.cx}
             cy={node.cy}
             r="6"
