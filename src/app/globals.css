@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+:root {
+  --lab-bg: #0b0e11;
+  --lab-bg-2: #11151a;
+  --lab-paper: #f5f1e6;
+  --lab-amber: #ff8a3d;
+  --lab-cyan: #4fd8e0;
+  --lab-ink: #e8e6e1;
+  --lab-muted: #9aa3ab;
+  --lab-line: #232a31;
+}
+
+@theme inline {
+  --color-bg: var(--lab-bg);
+  --color-bg-2: var(--lab-bg-2);
+  --color-paper: var(--lab-paper);
+  --color-amber: var(--lab-amber);
+  --color-cyan: var(--lab-cyan);
+  --color-ink: var(--lab-ink);
+  --color-muted: var(--lab-muted);
+  --color-line: var(--lab-line);
+  --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
+  --font-body: "Inter", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--lab-bg);
+  color: var(--lab-ink);
+  font-family: var(--font-body);
+  background-image:
+    linear-gradient(var(--lab-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--lab-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center top;
+  background-attachment: fixed;
+  opacity: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 138, 61, 0.08), transparent 60%);
+}
+
+::selection {
+  background: var(--lab-amber);
+  color: var(--lab-bg);
+}
+
+a {
+  color: inherit;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.hairline {
+  border: 1px solid var(--lab-line);
+}
+
+.lab-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lab-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--lab-amber);
+  outline-offset: 3px;
+}
+
+.flow-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--lab-amber) transparent;
+}
+
+.flow-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.flow-scroll::-webkit-scrollbar-thumb {
+  background: var(--lab-amber);
+  border-radius: 999px;
+}
+
+.flow-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
