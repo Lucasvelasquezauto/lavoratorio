@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useLang, Lang } from "@/lib/i18n";
 import { Project } from "@/data/projects";
@@ -22,10 +23,24 @@ export default function ProjectDetail({ project }: { project: Project }) {
         <p className="text-[var(--lab-muted)] text-lg leading-relaxed">{project.short[lang as Lang]}</p>
       </ScrollReveal>
 
+      {project.image && (
+        <ScrollReveal className="mt-8">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] hairline rounded-lg overflow-hidden bg-[var(--lab-paper)]">
+            <Image
+              src={project.image}
+              alt={project.title[lang as Lang]}
+              fill
+              className="object-contain p-8"
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
+        </ScrollReveal>
+      )}
+
       <ScrollReveal className="mt-10">
         <p className="lab-tag mb-3">{t("flowTitle")}</p>
         <FlowDiagram steps={project.flow} color={project.color} />
-        <p className="lab-tag mt-3 italic normal-case">{t("mediaNote")}</p>
+        {!project.image && <p className="lab-tag mt-3 italic normal-case">{t("mediaNote")}</p>}
       </ScrollReveal>
 
       <ScrollReveal className="mt-12 hairline rounded-lg p-6 bg-[var(--lab-bg-2)]">
