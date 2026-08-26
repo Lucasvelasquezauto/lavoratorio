@@ -16,7 +16,7 @@ export default function CategorySections() {
         const items = projects.filter((p) => p.category === cat);
         if (items.length === 0) return null;
         return (
-          <div key={cat} className="mb-16 last:mb-0">
+          <div key={cat} id={cat} className="mb-16 last:mb-0 scroll-mt-24">
             <ScrollReveal>
               <div className="flex items-baseline gap-3 mb-6">
                 <span className="lab-tag">{cat}</span>
