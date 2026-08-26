@@ -22,10 +22,10 @@ interface CategoryNode {
 }
 
 const categoryNodes: CategoryNode[] = [
-  { cat: "automatizacion", cx: 60, cy: 260, color: "amber", labelDy: 24 },
-  { cat: "analisis", cx: 300, cy: 60, color: "cyan", labelDy: -16 },
-  { cat: "agentes", cx: 420, cy: 240, color: "amber", labelDy: 24 },
-  { cat: "exploracion", cx: 540, cy: 100, color: "cyan", labelDy: -16 },
+  { cat: "automatizacion", cx: 60, cy: 260, color: "amber", labelDy: 34 },
+  { cat: "analisis", cx: 300, cy: 60, color: "cyan", labelDy: -24 },
+  { cat: "agentes", cx: 420, cy: 240, color: "amber", labelDy: 34 },
+  { cat: "exploracion", cx: 540, cy: 100, color: "cyan", labelDy: -24 },
 ];
 
 export default function SignatureCircuit() {
@@ -104,22 +104,35 @@ export default function SignatureCircuit() {
         >
           <title>{categoryLabels[node.cat][lang]}</title>
           {/* generous invisible hit area for easier hover/tap */}
-          <circle cx={node.cx} cy={node.cy} r="18" fill="transparent" />
+          <circle cx={node.cx} cy={node.cy} r="22" fill="transparent" />
           <circle
-            className="circuit-node transition-transform duration-200 ease-out group-hover:scale-150 group-focus-visible:scale-150"
+            className="circuit-node transition-transform duration-200 ease-out group-hover:scale-[2.2] group-focus-visible:scale-[2.2]"
             cx={node.cx}
             cy={node.cy}
             r="6"
             fill={`var(--lab-${node.color})`}
-            style={{ transformBox: "fill-box", transformOrigin: "center" }}
+            // Explicit coordinates (matching the circle's own center, in the
+            // same user-unit space as the viewBox) instead of "center" +
+            // transform-box:fill-box — that combo scales off-center in some
+            // browsers because fill-box bounding-box support is inconsistent.
+            // An absolute transform-origin at the circle's own cx/cy scales
+            // correctly everywhere, no bounding-box lookup required.
+            style={{ transformOrigin: `${node.cx}px ${node.cy}px` }}
           />
           <text
             x={node.cx}
             y={node.cy + node.labelDy}
             textAnchor="middle"
             className="font-mono uppercase tracking-wide pointer-events-none opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100"
-            fontSize="10"
-            fill="var(--lab-muted)"
+            fontSize="18"
+            fontWeight="600"
+            fill="var(--lab-ink)"
+            style={{
+              paintOrder: "stroke",
+              stroke: "var(--lab-bg)",
+              strokeWidth: "5px",
+              strokeLinejoin: "round",
+            }}
           >
             {node.cat}
           </text>
