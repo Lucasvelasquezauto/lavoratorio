@@ -36,18 +36,10 @@ export default function SignatureCircuit() {
     const svg = svgRef.current;
     if (!svg) return;
     const paths = svg.querySelectorAll<SVGPathElement>(".circuit-line");
-    // The plain connector dots and the interactive category nodes are
-    // animated separately on purpose: the category nodes already carry a
-    // precise per-node transform-origin (set once via React, matching their
-    // own cx/cy) that the CSS hover/focus scale depends on. If GSAP's tween
-    // also touches `transformOrigin` on them (even just to clear it
-    // afterward), it strips that inline style from the DOM node directly —
-    // React never re-renders to restore it — leaving them scaling from the
-    // default SVG origin (the whole viewport's center) instead of their own
-    // center, which flings the far-from-center nodes off-canvas on hover.
-    // So: dots get transformOrigin as part of their tween (harmless, a
-    // circle's own bounding-box center is its cx/cy either way); category
-    // nodes only ever get `scale` from GSAP, never transformOrigin.
+    // The plain connector dots (which just pop in via a CSS transform) and
+    // the interactive category nodes (which grow via their `r` attribute,
+    // see below) are animated separately since they use different
+    // mechanics.
     const dots = svg.querySelectorAll<SVGCircleElement>(".circuit-node-dot");
     const catNodes = svg.querySelectorAll<SVGCircleElement>(".circuit-node-cat");
 
@@ -82,15 +74,21 @@ export default function SignatureCircuit() {
         },
         "-=1.2"
       )
+      // The category nodes grow their radius (`r`) directly instead of using
+      // a CSS transform: scaling an SVG circle via `transform: scale()`
+      // needs a correct transform-origin, and browsers disagree on how a
+      // pixel-based transform-origin maps onto an SVG element's own
+      // coordinate space — in practice it kept scaling from the wrong point
+      // and flinging the node away from its real position. Animating `r`
+      // has no such ambiguity: growth is centered on cx/cy by definition.
       .fromTo(
         catNodes,
-        { scale: 0 },
+        { attr: { r: 0 } },
         {
-          scale: 1,
+          attr: { r: 6 },
           duration: 0.5,
           stagger: 0.2,
           ease: "back.out(3)",
-          clearProps: "transform",
         },
         "<"
       );
@@ -127,18 +125,11 @@ export default function SignatureCircuit() {
           {/* generous invisible hit area for easier hover/tap */}
           <circle cx={node.cx} cy={node.cy} r="22" fill="transparent" />
           <circle
-            className="circuit-node-cat transition-transform duration-200 ease-out group-hover:scale-[2.2] group-focus-visible:scale-[2.2]"
+            className="circuit-node-cat transition-[r] duration-200 ease-out group-hover:[r:14px] group-focus-visible:[r:14px]"
             cx={node.cx}
             cy={node.cy}
             r="6"
             fill={`var(--lab-${node.color})`}
-            // Explicit coordinates (matching the circle's own center, in the
-            // same user-unit space as the viewBox) instead of "center" +
-            // transform-box:fill-box — that combo scales off-center in some
-            // browsers because fill-box bounding-box support is inconsistent.
-            // An absolute transform-origin at the circle's own cx/cy scales
-            // correctly everywhere, no bounding-box lookup required.
-            style={{ transformOrigin: `${node.cx}px ${node.cy}px` }}
           />
           <text
             x={node.cx}
