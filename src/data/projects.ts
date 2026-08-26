@@ -33,6 +33,7 @@ export const projects: Project[] = [
     category: "automatizacion",
     color: "amber",
     ctaType: "specific",
+    image: "/proyectos/bot-pagos.png",
     title: {
       es: "Bot de pagos y recordatorios para consulta psicológica",
       en: "Payment & reminder bot for a psychology practice",
@@ -67,6 +68,7 @@ export const projects: Project[] = [
     category: "automatizacion",
     color: "cyan",
     ctaType: "reusable",
+    image: "/proyectos/monitor-precios.png",
     title: {
       es: "Monitor de precios en supermercados colombianos",
       en: "Price monitor for Colombian supermarkets",
@@ -101,13 +103,14 @@ export const projects: Project[] = [
     category: "agentes",
     color: "amber",
     ctaType: "reusable",
+    image: "/proyectos/desarrollo-laboral.png",
     title: {
-      es: "Sistema de búsqueda de empleo asistido por IA",
-      en: "AI-assisted job search system",
+      es: "Sistema de desarrollo laboral y optimización de CV",
+      en: "Career development & CV optimization system",
     },
     short: {
-      es: "Perfilado, optimización de CV por rol y búsqueda automatizada de oportunidades, construido durante una búsqueda de empleo real.",
-      en: "Profiling, role-specific CV optimization, and automated opportunity search — built during a real job search.",
+      es: "Perfilado profesional, optimización de CV por rol y rastreo automatizado de oportunidades, construido durante una búsqueda de rol directivo real.",
+      en: "Professional profiling, role-specific CV optimization, and automated opportunity tracking — built during a real search for a senior role.",
     },
     problem: {
       es: "Adaptar el CV y rastrear oportunidades relevantes para roles senior en impacto social, sostenibilidad y organismos multilaterales es un trabajo manual y repetitivo.",
@@ -127,40 +130,6 @@ export const projects: Project[] = [
       { es: "Generación de versiones de CV", en: "CV version generation" },
       { es: "Búsqueda automatizada de vacantes", en: "Automated opportunity search" },
       { es: "Revisión y ajuste manual final", en: "Final manual review & tuning" },
-    ],
-  },
-  {
-    slug: "mod-roku-android",
-    category: "exploracion",
-    color: "cyan",
-    ctaType: "specific",
-    title: {
-      es: "Modificar un Roku viejo para correr Android",
-      en: "Modding an old Roku to run Android",
-    },
-    short: {
-      es: "Experimento de hardware: intentar revivir un Roku fuera de uso instalándole Android por vías no oficiales.",
-      en: "A hardware experiment: trying to revive a discarded Roku by installing Android through unofficial routes.",
-    },
-    problem: {
-      es: "Un Roku viejo, ya fuera de servicio, como excusa para explorar rooting y sistemas embebidos sin miedo a dañar algo en uso.",
-      en: "An old, already-retired Roku as an excuse to explore rooting and embedded systems without fear of breaking something in active use.",
-    },
-    approach: {
-      es: "Exploración de RootMyRoku, acceso por consola serial UART, y evaluación de builds personalizados de Android TV — encontrando limitaciones reales de hardware (soporte de Widevine y HEVC 4K) que descartaron algunas rutas.",
-      en: "Exploration of RootMyRoku, UART serial console access, and evaluation of custom Android TV builds — running into real hardware limitations (Widevine and 4K HEVC support) that ruled out some routes.",
-    },
-    stack: ["UART", "RootMyRoku", "Android TV builds", "Raspberry Pi"],
-    result: {
-      es: "Proyecto de exploración activo: documenta lo que funciona y lo que no, más útil como bitácora técnica que como tutorial cerrado.",
-      en: "Active exploration project: documents what works and what doesn't — more useful as a technical log than a finished tutorial.",
-    },
-    flow: [
-      { es: "Diagnóstico del hardware", en: "Hardware diagnosis" },
-      { es: "Acceso serial UART", en: "UART serial access" },
-      { es: "Intento de rooting", en: "Rooting attempt" },
-      { es: "Evaluación de builds de Android TV", en: "Android TV build evaluation" },
-      { es: "Registro de limitaciones encontradas", en: "Logging limitations found" },
     ],
   },
   {
@@ -445,7 +414,7 @@ export const projects: Project[] = [
     category: "agentes",
     color: "amber",
     ctaType: "specific",
-    image: "/proyectos/vector-estrategia.png",
+    image: "/proyectos/vector-estrategia.jpg",
     title: {
       es: "Sitio web de VECTOR Estrategia",
       en: "VECTOR Estrategia website",

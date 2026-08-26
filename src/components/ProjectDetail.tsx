@@ -27,7 +27,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
       {project.image && (
         <ScrollReveal className="mt-8">
           <div
-            className="lab-media relative aspect-[16/9] hairline rounded-lg bg-[var(--lab-bg-2)]"
+            className="lab-media relative aspect-[2/1] hairline rounded-lg bg-[var(--lab-bg-2)]"
             style={{ "--accent": accent } as CSSProperties}
           >
             <span className="lab-corner lab-corner-tl" />
@@ -38,7 +38,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
               src={project.image}
               alt={project.title[lang as Lang]}
               fill
-              className="object-contain p-12 transition-transform duration-500 ease-out hover:scale-[1.03]"
+              className="object-contain p-6 transition-transform duration-500 ease-out hover:scale-[1.03]"
               sizes="(max-width: 768px) 100vw, 768px"
             />
           </div>
