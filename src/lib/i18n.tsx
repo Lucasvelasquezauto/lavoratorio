@@ -51,10 +51,6 @@ export const t_: Dict = {
   flowTitle: { es: "Flujo del proceso", en: "Process flow" },
   ctaReusable: { es: "Solicita tu copia", en: "Request your copy" },
   ctaSpecific: { es: "Escríbeme por este proyecto", en: "Ask me about this project" },
-  mediaNote: {
-    es: "Diagrama ilustrativo — video real del proyecto en camino.",
-    en: "Illustrative diagram — real project footage coming soon.",
-  },
   footerRights: { es: "Sitio experimental, actualizado seguido.", en: "Experimental site, updated often." },
 };
 
@@ -78,6 +74,10 @@ export function LangProvider({ children }: { children: ReactNode }) {
       }
     } catch {}
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const setLang = (l: Lang) => {
     setLangState(l);

@@ -452,7 +452,7 @@ export const projects: Project[] = [
     image: "/proyectos/vaticine.jpg",
     title: {
       es: "vatiCINE: vota por los Oscar con tus amigos",
-      en: "vatiCINE: vote the Oscars with your friends",
+      en: "vatiCINE: vote on the Oscars with your friends",
     },
     short: {
       es: "Muestra las nominadas al Oscar con pósters, IMDb y Rotten Tomatoes, y deja votar por categoría cuál ganará y cuál fue la favorita — con un PDF final de resultados.",

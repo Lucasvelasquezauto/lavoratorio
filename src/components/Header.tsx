@@ -11,13 +11,13 @@ export default function Header() {
 
   const navLinks = (
     <>
-      <Link href="/#proyectos" className="hover:text-[var(--lab-ink)] transition-colors">
+      <Link href="/#proyectos" className="hover:text-[var(--lab-ink)] transition-colors py-2 -my-2 px-1 -mx-1">
         {t("navProjects")}
       </Link>
-      <Link href="/#certificaciones" className="hover:text-[var(--lab-ink)] transition-colors">
+      <Link href="/#certificaciones" className="hover:text-[var(--lab-ink)] transition-colors py-2 -my-2 px-1 -mx-1">
         {t("navCerts")}
       </Link>
-      <Link href="/#contacto" className="hover:text-[var(--lab-ink)] transition-colors">
+      <Link href="/#contacto" className="hover:text-[var(--lab-ink)] transition-colors py-2 -my-2 px-1 -mx-1">
         {t("navContact")}
       </Link>
     </>

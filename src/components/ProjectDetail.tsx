@@ -48,7 +48,6 @@ export default function ProjectDetail({ project }: { project: Project }) {
       <ScrollReveal className="mt-10">
         <p className="lab-tag mb-3">{t("flowTitle")}</p>
         <FlowDiagram steps={project.flow} color={project.color} />
-        {!project.image && <p className="lab-tag mt-3 italic normal-case">{t("mediaNote")}</p>}
       </ScrollReveal>
 
       <ScrollReveal className="mt-12 hairline rounded-lg p-6 bg-[var(--lab-bg-2)]">
