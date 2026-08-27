@@ -7,6 +7,13 @@ import ScrollReveal from "./ScrollReveal";
 
 const order: Category[] = ["automatizacion", "analisis", "agentes", "exploracion"];
 
+const catTagLabel: Record<Category, string> = {
+  automatizacion: "automatización",
+  analisis: "análisis",
+  agentes: "herramientas",
+  exploracion: "exploración",
+};
+
 export default function CategorySections() {
   const { lang } = useLang();
 
@@ -19,7 +26,7 @@ export default function CategorySections() {
           <div key={cat} id={cat} className="mb-16 last:mb-0 scroll-mt-24">
             <ScrollReveal>
               <div className="flex items-baseline gap-3 mb-6">
-                <span className="lab-tag">{cat}</span>
+                <span className="lab-tag">{catTagLabel[cat]}</span>
                 <h2 className="font-display text-2xl">{categoryLabels[cat][lang]}</h2>
               </div>
             </ScrollReveal>

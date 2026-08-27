@@ -10,7 +10,7 @@ export default function CertificationsGrid() {
   return (
     <section id="certificaciones" className="px-6 mx-auto max-w-6xl py-20 border-t border-[var(--lab-line)]">
       <ScrollReveal>
-        <span className="lab-tag mb-3 block">{t("certsTitle")} — 002</span>
+        <span className="lab-tag mb-3 block">{t("certsTitle")} · 002</span>
         <h2 className="font-display text-2xl mb-2">{t("certsTitle")}</h2>
         <p className="text-[var(--lab-muted)] max-w-md mb-10">{t("certsSub")}</p>
       </ScrollReveal>

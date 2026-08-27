@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className="relative pt-40 pb-24 px-6 mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <p className="lab-tag mb-4">{t("presentTag")} — 000</p>
+        <p className="lab-tag mb-4">{t("presentTag")} · 000</p>
         <h1 className="font-display text-5xl sm:text-6xl leading-[1.05] tracking-tight">
           {t("heroTitle")}
         </h1>

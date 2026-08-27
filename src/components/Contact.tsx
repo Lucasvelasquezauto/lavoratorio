@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <section id="contacto" className="px-6 mx-auto max-w-6xl py-24 border-t border-[var(--lab-line)]">
       <div className="max-w-lg">
-        <span className="lab-tag mb-3 block">{t("contactTitle")} — 003</span>
+        <span className="lab-tag mb-3 block">{t("contactTitle")} · 003</span>
         <h2 className="font-display text-3xl mb-4">{t("contactTitle")}</h2>
         <p className="text-[var(--lab-muted)] mb-8 leading-relaxed">{t("contactBody")}</p>
         <Link

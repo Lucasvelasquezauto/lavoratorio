@@ -23,8 +23,8 @@ export interface Project {
 export const categoryLabels: Record<Category, { es: string; en: string }> = {
   automatizacion: { es: "Automatización de procesos", en: "Process automation" },
   analisis: { es: "Análisis y modelos predictivos", en: "Analysis & predictive models" },
-  agentes: { es: "Herramientas y agentes", en: "Tools & agents" },
-  exploracion: { es: "Exploración técnica", en: "Technical exploration" },
+  agentes: { es: "Herramientas y soluciones inteligentes", en: "Tools & smart solutions" },
+  exploracion: { es: "Exploraciones técnicas", en: "Technical explorations" },
 };
 
 export const projects: Project[] = [
@@ -39,8 +39,8 @@ export const projects: Project[] = [
       en: "Payment & reminder bot for a psychology practice",
     },
     short: {
-      es: "Automatización que controla pagos de pacientes, envía recordatorios de citas y mantiene la agenda sincronizada, sin intervención manual.",
-      en: "Automation that tracks patient payments, sends appointment reminders, and keeps the calendar in sync — no manual work.",
+      es: "Automatiza el seguimiento de pagos, los recordatorios de citas y la sincronización de agenda, reduciendo tareas administrativas y eliminando buena parte de la gestión manual.",
+      en: "Automates payment tracking, appointment reminders, and calendar syncing — reducing administrative work and most of the manual effort involved.",
     },
     problem: {
       es: "Una psicóloga independiente perdía tiempo cada semana revisando manualmente qué pacientes habían pagado, cruzando eso con su calendario, y escribiendo recordatorios uno por uno.",
@@ -74,8 +74,8 @@ export const projects: Project[] = [
       en: "Price monitor for Colombian supermarkets",
     },
     short: {
-      es: "Scraper que vigila el precio de un producto específico en varias cadenas y avisa por Telegram cuando baja.",
-      en: "A scraper that watches a specific product's price across multiple chains and alerts via Telegram when it drops.",
+      es: "Sistema de monitoreo que consulta el precio de un producto en distintas cadenas y envía una alerta por Telegram cuando detecta una reducción.",
+      en: "A monitoring system that checks a product's price across different chains and sends a Telegram alert when it detects a drop.",
     },
     problem: {
       es: "Comparar precios de un mismo producto entre cadenas distintas (Éxito, D1, Jumbo, Euro) a mano es lento y hay que repetirlo cada vez que se quiere comprar.",
@@ -109,8 +109,8 @@ export const projects: Project[] = [
       en: "Career development & CV optimization system",
     },
     short: {
-      es: "Perfilado profesional, optimización de CV por rol y rastreo automatizado de oportunidades, construido durante una búsqueda de rol directivo real.",
-      en: "Professional profiling, role-specific CV optimization, and automated opportunity tracking — built during a real search for a senior role.",
+      es: "Sistema para perfilar experiencia profesional, adaptar el CV a cada rol y automatizar el seguimiento de oportunidades, desarrollado y probado durante una búsqueda laboral real.",
+      en: "A system to profile professional experience, tailor the CV to each role, and automate opportunity tracking — developed and tested during a real job search.",
     },
     problem: {
       es: "Adaptar el CV y rastrear oportunidades relevantes para roles senior en impacto social, sostenibilidad y organismos multilaterales es un trabajo manual y repetitivo.",
@@ -120,7 +120,7 @@ export const projects: Project[] = [
       es: "Un conjunto de flujos en Claude Cowork perfila el objetivo profesional, genera versiones de CV ajustadas por tipo de rol y automatiza la búsqueda de vacantes, descartando conscientemente la automatización de LinkedIn por riesgo de bloqueo de cuenta.",
       en: "A set of Claude Cowork workflows profiles the target role, generates CV versions tailored per role type, and automates opportunity search — deliberately ruling out LinkedIn automation due to account-suspension risk.",
     },
-    stack: ["Claude Cowork", "búsqueda automatizada", "prompt engineering"],
+    stack: ["Claude Cowork", "Búsqueda automatizada", "Prompt engineering"],
     result: {
       es: "Produjo una versión de CV (v5) enfocada en roles directivos de impacto social y sostenibilidad.",
       en: "Produced a CV version (v5) focused on senior social-impact and sustainability roles.",
@@ -139,12 +139,12 @@ export const projects: Project[] = [
     ctaType: "specific",
     image: "/proyectos/ticinco.png",
     title: {
-      es: "Ticinco (T5): juego de palabras contra reloj",
-      en: "Ticinco (T5): a word game against the clock",
+      es: "Ticinco (T5): juego de palabras con app complementaria",
+      en: "Ticinco (T5): a word game with a companion app",
     },
     short: {
-      es: "Juego de mesa híbrido que inventé hace 5 años, hoy con una app en Flutter que reparte categorías y letras, controla el minuto y lleva el conteo hacia el 'ticinco'.",
-      en: "A hybrid board game I invented five years ago, now with a Flutter app that deals categories and letters, runs the one-minute clock, and tracks the race to a 'ticinco'.",
+      es: "Juego de mesa híbrido convertido en una experiencia digital con Flutter: asigna categorías y letras, controla el tiempo de cada ronda y lleva el marcador hasta el 'ticinco'.",
+      en: "A hybrid board game turned into a digital experience with Flutter: assigns categories and letters, times each round, and tracks the score toward a 'ticinco'.",
     },
     problem: {
       es: "T5 nació en papel: cartas, un dado y un cronómetro de celular. Funcionaba, pero ampliar categorías o llevar el puntaje a mano se volvía tedioso partida tras partida.",
@@ -174,12 +174,12 @@ export const projects: Project[] = [
     ctaType: "specific",
     image: "/proyectos/radiola.png",
     title: {
-      es: "Radiola: juego de adivinar canciones con Spotify",
-      en: "Radiola: a song-guessing game powered by Spotify",
+      es: "Radiola: juego musical integrado con Spotify",
+      en: "Radiola: a music game integrated with Spotify",
     },
     short: {
-      es: "Juego híbrido para 2 a 10 personas inspirado en el Rockola de los 90, con retos que suenan directo desde tus propias listas de Spotify.",
-      en: "A hybrid game for 2 to 10 people inspired by the 90s board game Rockola, with challenges that play straight from your own Spotify playlists.",
+      es: "Juego híbrido para 2 a 10 personas que convierte listas de Spotify en retos para adivinar canciones, inspirado en la experiencia de las rockolas de los años 90.",
+      en: "A hybrid game for 2 to 10 people that turns Spotify playlists into song-guessing challenges, inspired by the jukebox experience of the 90s.",
     },
     problem: {
       es: "Quería recrear la mecánica de Rockola, un juego de mesa de los 90, pero con la música real de cada grupo — no un mazo fijo de canciones que se vuelve viejo a la tercera partida.",
@@ -209,12 +209,12 @@ export const projects: Project[] = [
     ctaType: "reusable",
     image: "/proyectos/timerflow.png",
     title: {
-      es: "Timerflow: temporizador múltiple para rutinas",
-      en: "Timerflow: a multi-round timer for routines",
+      es: "Timerflow: temporizador por rondas para rutinas",
+      en: "Timerflow: a per-round timer for routines",
     },
     short: {
-      es: "Mi primera app Android: un temporizador programable por ronda, sin publicidad, para ajustar rutinas de ejercicio donde cada ronda necesita su propio tiempo.",
-      en: "My first Android app: a per-round programmable timer, ad-free, built to fit exercise routines where each round needs its own duration.",
+      es: "Aplicación Android para configurar tiempos independientes en cada ronda de una rutina de ejercicio, sin publicidad y con programación flexible.",
+      en: "An Android app to set independent durations for each round of an exercise routine, ad-free and fully configurable.",
     },
     problem: {
       es: "Mis rutinas de ejercicio suelen tener tres rondas, y normalmente uno va más lento conforme avanza la sesión. No encontré un temporizador simple, sin publicidad, que permitiera un tiempo distinto por ronda con descansos entre ellas.",
@@ -243,12 +243,12 @@ export const projects: Project[] = [
     ctaType: "reusable",
     image: "/proyectos/acronico.png",
     title: {
-      es: "Acronico: temporizador multietapa con importación de pasos",
-      en: "Acronico: a multi-stage timer with step import",
+      es: "Acronico: temporizador multietapa basado en secuencias",
+      en: "Acronico: a multi-stage, sequence-based timer",
     },
     short: {
-      es: "Temporizador programable más avanzado que Timerflow, nacido de un curso de masajes: importa una secuencia de pasos y tiempos, y muestra qué sigue mientras corre.",
-      en: "A more advanced programmable timer than Timerflow, born from a massage course: it imports a sequence of steps and durations, and shows what's next while it runs.",
+      es: "Aplicación para importar secuencias de pasos y tiempos, ejecutarlas de forma ordenada y mostrar en todo momento la etapa actual y la siguiente.",
+      en: "An app to import sequences of steps and durations, run them in order, and always show the current and next stage.",
     },
     problem: {
       es: "En un curso de masajes necesitaba llevar el tiempo de cada movimiento y zona del cuerpo sin perder el ritmo ni mirar el celular todo el tiempo — y sin tener que reconfigurar la secuencia desde cero cada vez.",
@@ -277,12 +277,12 @@ export const projects: Project[] = [
     ctaType: "specific",
     image: "/proyectos/crossed.png",
     title: {
-      es: "Crossed: crucigramas de ADN diligenciables en el celular",
-      en: "Crossed: ADN's crossword, fillable on your phone",
+      es: "Crossed: digitalización de crucigramas con OCR",
+      en: "Crossed: crossword digitization with OCR",
     },
     short: {
-      es: "Le toma una foto al crucigrama diario del diario ADN y reconstruye la cuadrícula jugable con OCR, para diligenciarlo y guardarlo en el celular.",
-      en: "Takes a screenshot of the daily crossword from Colombian newspaper ADN and rebuilds a playable grid with OCR, so you can fill it in and save it on your phone.",
+      es: "Captura el crucigrama impreso del diario ADN, reconstruye su cuadrícula mediante OCR y la convierte en una versión interactiva para resolver y guardar en el celular.",
+      en: "Captures the printed crossword from newspaper ADN, rebuilds its grid using OCR, and turns it into an interactive version to solve and save on your phone.",
     },
     problem: {
       es: "Soy fanático de los crucigramas que publica el diario ADN, pero solo existen como imagen estática — no se pueden diligenciar ni guardar para retomar después.",
@@ -312,12 +312,12 @@ export const projects: Project[] = [
     ctaType: "reusable",
     image: "/proyectos/autoframe.jpg",
     title: {
-      es: "Autoframe: marco cuadrado automático para Instagram",
-      en: "Autoframe: automatic square framing for Instagram",
+      es: "Autoframe: convierte cualquier foto en formato cuadrado",
+      en: "Autoframe: turns any photo into square format",
     },
     short: {
-      es: "Toma una foto en cualquier proporción, detecta el color de sus propios bordes y genera un marco cuadrado con degradé, sin recortar nada de la imagen.",
-      en: "Takes a photo in any aspect ratio, detects the color at its own edges, and generates a square gradient frame — without cropping anything out.",
+      es: "Adapta automáticamente imágenes de cualquier proporción a un formato cuadrado, generando un marco a partir de los colores de sus propios bordes y sin recortar la fotografía.",
+      en: "Automatically adapts images of any aspect ratio to a square format, generating a frame from the photo's own edge colors without cropping it.",
     },
     problem: {
       es: "Publicar fotos en el formato cuadrado de Instagram casi siempre significa recortar partes de la imagen, o dejar barras blancas o negras que se ven poco cuidadas.",
@@ -346,12 +346,12 @@ export const projects: Project[] = [
     ctaType: "specific",
     image: "/proyectos/legend-forge.png",
     title: {
-      es: "Legend Forge: fichas de D&D en minutos, no en horas",
-      en: "Legend Forge: D&D character sheets in minutes, not hours",
+      es: "Legend Forge: creación de personajes de D&D asistida por IA",
+      en: "Legend Forge: AI-assisted D&D character creation",
     },
     short: {
-      es: "Guía con preguntas simples, calcula todo según el reglamento oficial de D&D 2024 y entrega el PDF oficial diligenciado — con imagen del personaje generada por IA.",
-      en: "Guides you with simple questions, calculates everything per the official D&D 2024 rules, and delivers the official filled-out PDF — with an AI-generated character image.",
+      es: "Guía al usuario paso a paso, automatiza los cálculos según las reglas de D&D 2024 y genera una ficha lista para imprimir, acompañada de una imagen del personaje creada con IA.",
+      en: "Guides the user step by step, automates calculations per the D&D 2024 rules, and generates a print-ready sheet along with an AI-generated character image.",
     },
     problem: {
       es: "Crear una ficha de personaje de Dungeons & Dragons a mano, revisando manuales y calculando modificadores, toma entre 2 y 4 horas — un obstáculo real para empezar a jugar.",
@@ -385,8 +385,8 @@ export const projects: Project[] = [
       en: "Content engine for VECTOR Estrategia's LinkedIn",
     },
     short: {
-      es: "Pipeline que busca noticias relevantes, redacta y genera imagen con IA, y publica en LinkedIn con aprobación humana en el medio y publicación programada al final.",
-      en: "A pipeline that finds relevant news, drafts copy and generates an image with AI, and publishes to LinkedIn with human approval in the middle and scheduled publishing at the end.",
+      es: "Pipeline automatizado que identifica noticias relevantes, genera textos e imágenes con IA y prepara publicaciones para LinkedIn, manteniendo aprobación humana antes de publicar.",
+      en: "An automated pipeline that identifies relevant news, generates copy and images with AI, and prepares LinkedIn posts — keeping human approval before anything is published.",
     },
     problem: {
       es: "Mantener una cadencia constante de publicaciones relevantes en LinkedIn para una consultora nueva, sin dedicarle horas cada día a buscar noticias y redactar desde cero.",
@@ -420,8 +420,8 @@ export const projects: Project[] = [
       en: "VECTOR Estrategia website",
     },
     short: {
-      es: "El sitio de una consultoría de competitividad potenciada por IA para PYMEs y profesionales independientes, construido junto con Claude.",
-      en: "The site for an AI-powered competitiveness consultancy for SMEs and independent professionals, built together with Claude.",
+      es: "Sitio web de una consultoría de competitividad apoyada en IA, diseñado y desarrollado para atender a PYMEs y profesionales independientes.",
+      en: "Website for an AI-supported competitiveness consultancy, designed and developed to serve SMEs and independent professionals.",
     },
     problem: {
       es: "VECTOR Estrategia necesitaba una presencia web que transmitiera su propuesta —consultoría de competitividad con IA— con una identidad visual propia y sólida.",
@@ -451,12 +451,12 @@ export const projects: Project[] = [
     ctaType: "reusable",
     image: "/proyectos/vaticine.jpg",
     title: {
-      es: "vatiCINE: vota por los Oscar con tus amigos",
-      en: "vatiCINE: vote on the Oscars with your friends",
+      es: "vatiCINE: predicción y votación colaborativa de los Oscar",
+      en: "vatiCINE: collaborative Oscar prediction and voting",
     },
     short: {
-      es: "Muestra las nominadas al Oscar con pósters, IMDb y Rotten Tomatoes, y deja votar por categoría cuál ganará y cuál fue la favorita — con un PDF final de resultados.",
-      en: "Shows the Oscar-nominated films with posters, IMDb, and Rotten Tomatoes scores, and lets everyone vote per category on who will win and who was their favorite — with a final results PDF.",
+      es: "Reúne las nominaciones, referencias de IMDb y Rotten Tomatoes, permite registrar predicciones y preferencias por categoría y genera un informe final con los resultados.",
+      en: "Brings together nominations and IMDb/Rotten Tomatoes references, lets users record predictions and preferences per category, and generates a final results report.",
     },
     problem: {
       es: "Comparar predicciones sobre quién ganaría cada categoría del Oscar entre un grupo de amigos, y después saber quién acertó más, se hacía a mano y se perdía el registro.",
@@ -485,12 +485,12 @@ export const projects: Project[] = [
     ctaType: "reusable",
     image: "/proyectos/todoist.jpg",
     title: {
-      es: "El Bowl de los Papelitos: planes al azar en pareja o grupo",
-      en: "The Bowl of Notes: random plans for couples or groups",
+      es: "El Bowl de los Papelitos: generador de planes para parejas y grupos",
+      en: "The Bowl of Notes: a plan generator for couples and groups",
     },
     short: {
-      es: "Urna virtual donde todos aportan planes en secreto; cuando nadie sabe qué hacer, saca uno al azar y lleva una bitácora de lo que ya se vivió.",
-      en: "A virtual jar where everyone drops in plans secretly; when no one knows what to do, it draws one at random and keeps a log of what you've already lived.",
+      es: "Aplicación que reúne propuestas de todos los participantes, selecciona una al azar cuando hace falta decidir y mantiene un historial de las experiencias realizadas.",
+      en: "An app that gathers plan proposals from every participant, randomly selects one when a decision is needed, and keeps a history of completed experiences.",
     },
     problem: {
       es: "En pareja o entre amigos, siempre surge la pregunta de qué hacer un día cualquiera, y las ideas buenas se olvidan o nunca se anotan en ningún lado.",

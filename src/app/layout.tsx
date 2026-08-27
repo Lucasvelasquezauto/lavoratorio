@@ -6,14 +6,14 @@ import Header from "@/components/Header";
 export const metadata: Metadata = {
   metadataBase: new URL("https://lavoratorio.vercel.app"),
   title: {
-    default: "LAVoratorio — vitrina experimental de Lucas Velásquez",
+    default: "LAVoratorio — laboratorio personal de Lucas Velásquez",
     template: "%s — LAVoratorio",
   },
   description:
-    "Economista y estratega autodidacta en IA. Vitrina experimental de apps, automatizaciones y agentes construidos desde 2025.",
+    "Economista y estratega con experiencia en planeación estratégica. Soluciones con IA, automatización y desarrollo construidas desde 2025.",
   openGraph: {
     title: "LAVoratorio",
-    description: "Vitrina experimental de Lucas Velásquez: apps, automatizaciones y agentes de IA.",
+    description: "Laboratorio personal de Lucas Velásquez: apps, automatizaciones y soluciones con IA.",
     images: ["/og.png"],
     type: "website",
   },
