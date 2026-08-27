@@ -512,6 +512,41 @@ export const projects: Project[] = [
       { es: "Queda registrado en la bitácora", en: "It's logged in the record" },
     ],
   },
+  {
+    slug: "automatizacion-blog-redes",
+    category: "automatizacion",
+    color: "amber",
+    ctaType: "specific",
+    image: "/proyectos/automatizacion-blog-redes.png",
+    title: {
+      es: "Automatización de contenido para blog y redes sociales",
+      en: "Content automation for blog and social media",
+    },
+    short: {
+      es: "Sistema de automatización 100% local que rastrea noticias, permite elegir un tema y genera borradores de blog, LinkedIn y X en un estilo editorial definido, con Notion como base de datos central.",
+      en: "A fully local automation system that tracks news, lets me pick a topic, and drafts blog, LinkedIn, and X posts in a defined editorial style, with Notion as the central database.",
+    },
+    problem: {
+      es: "Las herramientas de automatización en la nube resultaban costosas para un flujo editorial recurrente, y dependía de revisar manualmente varias fuentes de noticias antes de poder escribir sobre algún tema.",
+      en: "Cloud automation tools were costly for a recurring editorial workflow, and it required manually checking multiple news sources before writing about any topic.",
+    },
+    approach: {
+      es: "Activepieces, corriendo en Docker junto con Ollama (modelos Qwen2.5 14B y 32B locales), orquesta tres flujos: el primero rastrea fuentes RSS de áreas definidas y descarta duplicados; el segundo presenta los candidatos en Cockpit, una aplicación web propia desde la que elijo un tema, resume la selección en Notion y genera los borradores de blog, LinkedIn y X en el estilo editorial definido; el tercero publica el artículo, comparte automáticamente en LinkedIn y me envía por Telegram el borrador de X para revisión y publicación manual, dejando el estado de cada canal registrado en Notion.",
+      en: "Activepieces, running in Docker alongside Ollama (local Qwen2.5 14B and 32B models), orchestrates three flows: the first tracks RSS sources across defined topic areas and filters out duplicates; the second surfaces the candidates in Cockpit, a custom web app where I pick a topic, then summarizes the selection in Notion and drafts the blog, LinkedIn, and X posts in the defined editorial style; the third publishes the article, shares it automatically on LinkedIn, and sends the X draft to me via Telegram for review and manual posting, logging each channel's status back in Notion.",
+    },
+    stack: ["Docker", "Activepieces", "Ollama", "Notion API", "React"],
+    result: {
+      es: "Un flujo editorial que corre sin costos de nube, desde el rastreo de noticias hasta la publicación en dos de tres canales.",
+      en: "An editorial workflow that runs with no cloud costs, from news tracking to publishing on two of three channels.",
+    },
+    flow: [
+      { es: "Rastrea RSS por áreas definidas", en: "Tracks RSS by defined topic areas" },
+      { es: "Filtra duplicados y lista candidatos en Cockpit", en: "Filters duplicates and lists candidates in Cockpit" },
+      { es: "Selecciono un tema desde Cockpit", en: "I pick a topic from Cockpit" },
+      { es: "Resume en Notion y redacta blog, LinkedIn y X", en: "Summarizes in Notion and drafts blog, LinkedIn, and X copy" },
+      { es: "Publica blog y LinkedIn; envía X por Telegram", en: "Publishes blog and LinkedIn; sends X draft via Telegram" },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
