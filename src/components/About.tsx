@@ -29,7 +29,7 @@ export default function About() {
         </ScrollReveal>
         <ScrollReveal>
           <div className="max-w-2xl">
-            <span className="lab-tag mb-3 block">{t("aboutTitle")} — 000</span>
+            <span className="lab-tag mb-3 block">{t("aboutTitle")} — 001</span>
             <h2 className="font-display text-2xl mb-4">{t("aboutTitle")}</h2>
             <p className="text-[var(--lab-muted)] leading-relaxed">{t("aboutBody")}</p>
           </div>

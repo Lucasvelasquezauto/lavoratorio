@@ -22,7 +22,7 @@ export const t_: Dict = {
   navContact: { es: "Contacto", en: "Contact" },
   navMenu: { es: "Abrir menú", en: "Open menu" },
   navClose: { es: "Cerrar menú", en: "Close menu" },
-  aboutTitle: { es: "Por qué esto existe", en: "Why this exists" },
+  aboutTitle: { es: "Por qué existe esto", en: "Why this exists" },
   aboutBody: {
     es: "No soy desarrollador de formación — soy economista con experiencia en planeación estratégica. Desde 2025 me formé por mi cuenta en IA y automatización, y empecé a construir en serio: primero por necesidad, después por hábito. Este sitio reúne esos proyectos, clasificados por lo que resuelven, no por qué tan complejo es el código detrás.",
     en: "I'm not a trained developer — I'm an economist with a background in strategic planning. Since 2025 I've been self-taught in AI and automation, and started building for real: first out of necessity, then out of habit. This site collects those projects, organized by what they solve, not by how complex the code behind them is.",
