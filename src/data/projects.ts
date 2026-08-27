@@ -182,8 +182,8 @@ export const projects: Project[] = [
       en: "A hybrid game for 2 to 10 people that turns Spotify playlists into song-guessing challenges, inspired by the jukebox experience of the 90s.",
     },
     problem: {
-      es: "Quería recrear la mecánica de Rockola, un juego de mesa de los 90, pero con la música real de cada grupo — no un mazo fijo de canciones que se vuelve viejo a la tercera partida.",
-      en: "I wanted to recreate the mechanics of Rockola, a 90s board game, but with each group's real music — not a fixed deck of songs that goes stale by the third round.",
+      es: "Quería recrear la mecánica de Rockola, un juego de mesa de los 90, pero con la música real de cada grupo — no un mazo fijo de canciones que pierde interés rápido.",
+      en: "I wanted to recreate the mechanics of Rockola, a 90s board game, but with each group's real music — not a fixed deck of songs that quickly loses its appeal.",
     },
     approach: {
       es: "App nativa de Android en Kotlin con Jetpack Compose, integrada directamente con el SDK de Spotify (Spotify App Remote) para controlar la reproducción real desde las playlists del usuario. Implementé ocho tipos de reto distintos (banda, mímica, dueto, productor, pista, cita, ritmo, canto), cada uno una forma diferente de interactuar con la canción sonando, con Room y Firebase para guardar partidas y sincronizar datos.",
@@ -226,8 +226,8 @@ export const projects: Project[] = [
     },
     stack: ["Kotlin", "Android Views", "ConstraintLayout", "Gson"],
     result: {
-      es: "Uso diario propio: cero fricción, cero anuncios, y exactamente el temporizador que mis rutinas necesitaban.",
-      en: "Daily personal use: zero friction, zero ads, exactly the timer my routines needed.",
+      es: "Uso diario sin fricción ni anuncios, con exactamente la configuración que la rutina necesita.",
+      en: "Daily use with zero friction and no ads, with exactly the configuration each routine needs.",
     },
     flow: [
       { es: "Configura tiempo por ronda", en: "Set duration per round" },
@@ -468,8 +468,8 @@ export const projects: Project[] = [
     },
     stack: ["Next.js", "Supabase", "pdf-lib", "fontkit"],
     result: {
-      es: "Un ritual anual con los amigos: votar, ver quién acertó más, y guardar el PDF como recuerdo de esa edición del Oscar.",
-      en: "An annual ritual with friends: vote, see who called it best, and keep the PDF as a memento of that year's Oscars.",
+      es: "Un proceso que se repite cada año: votar, comparar aciertos, y guardar el PDF con los resultados de esa edición.",
+      en: "A process repeated every year: vote, compare who called it best, and keep the PDF with that edition's results.",
     },
     flow: [
       { es: "Usuario inicia sesión", en: "User logs in" },
@@ -502,8 +502,8 @@ export const projects: Project[] = [
     },
     stack: ["React", "TanStack Router", "Tailwind CSS"],
     result: {
-      es: "Nunca más 'no sé qué hacer', y una bitácora que se vuelve un lindo registro de recuerdos compartidos.",
-      en: "Never 'I don't know what to do' again, and a log that becomes a nice record of shared memories.",
+      es: "Resuelve la indecisión del día a día, y la bitácora queda como historial de los planes ya vividos.",
+      en: "Solves day-to-day indecision, and the log becomes a history of plans already lived out.",
     },
     flow: [
       { es: "Cada persona aporta un plan en secreto", en: "Each person drops in a secret plan" },
