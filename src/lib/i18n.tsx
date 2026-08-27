@@ -20,6 +20,8 @@ export const t_: Dict = {
   navProjects: { es: "Proyectos", en: "Projects" },
   navCerts: { es: "Certificaciones", en: "Certifications" },
   navContact: { es: "Contacto", en: "Contact" },
+  navMenu: { es: "Abrir menú", en: "Open menu" },
+  navClose: { es: "Cerrar menú", en: "Close menu" },
   aboutTitle: { es: "Por qué esto existe", en: "Why this exists" },
   aboutBody: {
     es: "No soy desarrollador de formación — soy economista con experiencia en planeación estratégica. Desde 2025 me formé por mi cuenta en IA y automatización, y empecé a construir en serio: primero por necesidad, después por hábito. Este sitio reúne esos proyectos, clasificados por lo que resuelven, no por qué tan complejo es el código detrás.",

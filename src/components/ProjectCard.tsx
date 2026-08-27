@@ -49,7 +49,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           )}
           <div className="min-w-0">
             <h3 className="font-display text-xl leading-snug mb-2">{project.title[lang as Lang]}</h3>
-            <p className="text-sm text-[var(--lab-muted)] leading-relaxed">{project.short[lang as Lang]}</p>
+            <p className="text-base sm:text-sm text-[var(--lab-muted)] leading-relaxed">{project.short[lang as Lang]}</p>
           </div>
         </div>
         <div className="px-6 pb-6">
