@@ -25,6 +25,7 @@ export interface Project {
   color: "amber" | "cyan";
   image?: string;
   videos?: ProjectVideo[];
+  gallery?: string[];
 }
 
 export const categoryLabels: Record<Category, { es: string; en: string }> = {
@@ -145,6 +146,13 @@ export const projects: Project[] = [
     color: "amber",
     ctaType: "specific",
     image: "/proyectos/ticinco.png",
+    videos: [
+      {
+        src: "/proyectos/media/ticinco.mp4",
+        poster: "/proyectos/media/poster-ticinco.jpg",
+        label: { es: "Demo — Ticinco (T5)", en: "Demo — Ticinco (T5)" },
+      },
+    ],
     title: {
       es: "Ticinco (T5): juego de palabras con app complementaria",
       en: "Ticinco (T5): a word game with a companion app",
@@ -180,6 +188,13 @@ export const projects: Project[] = [
     color: "cyan",
     ctaType: "specific",
     image: "/proyectos/radiola.png",
+    videos: [
+      {
+        src: "/proyectos/media/radiola.mp4",
+        poster: "/proyectos/media/poster-radiola.jpg",
+        label: { es: "Demo — Radiola", en: "Demo — Radiola" },
+      },
+    ],
     title: {
       es: "Radiola: juego musical integrado con Spotify",
       en: "Radiola: a music game integrated with Spotify",
@@ -215,6 +230,13 @@ export const projects: Project[] = [
     color: "amber",
     ctaType: "reusable",
     image: "/proyectos/timerflow.png",
+    videos: [
+      {
+        src: "/proyectos/media/timerflow.mp4",
+        poster: "/proyectos/media/poster-timerflow.jpg",
+        label: { es: "Demo — Timerflow", en: "Demo — Timerflow" },
+      },
+    ],
     title: {
       es: "Timerflow: temporizador por rondas para rutinas",
       en: "Timerflow: a per-round timer for routines",
@@ -318,6 +340,11 @@ export const projects: Project[] = [
     color: "cyan",
     ctaType: "reusable",
     image: "/proyectos/autoframe.jpg",
+    gallery: [
+      "/proyectos/media/autoframe-perrita-1.jpg",
+      "/proyectos/media/autoframe-perrita-2.jpg",
+      "/proyectos/media/autoframe-perrita-3.jpg",
+    ],
     title: {
       es: "Autoframe: convierte cualquier foto en formato cuadrado",
       en: "Autoframe: turns any photo into square format",

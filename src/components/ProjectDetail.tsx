@@ -51,6 +51,30 @@ export default function ProjectDetail({ project }: { project: Project }) {
             ))}
           </div>
         </ScrollReveal>
+      ) : project.gallery && project.gallery.length > 0 ? (
+        <ScrollReveal className="mt-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {project.gallery.map((src) => (
+              <div
+                key={src}
+                className="lab-media relative aspect-square hairline rounded-lg bg-[var(--lab-bg-2)] overflow-hidden"
+                style={{ "--accent": accent } as CSSProperties}
+              >
+                <span className="lab-corner lab-corner-tl" />
+                <span className="lab-corner lab-corner-tr" />
+                <span className="lab-corner lab-corner-bl" />
+                <span className="lab-corner lab-corner-br" />
+                <Image
+                  src={src}
+                  alt={project.title[lang as Lang]}
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out hover:scale-[1.03]"
+                  sizes="(max-width: 768px) 50vw, 256px"
+                />
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
       ) : (
         project.image && (
           <ScrollReveal className="mt-8">
