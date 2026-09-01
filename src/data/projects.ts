@@ -213,8 +213,8 @@ export const projects: Project[] = [
     },
     stack: ["Kotlin", "Jetpack Compose", "Spotify Web API (OAuth)", "Deezer API (previews)", "Room", "Firebase Firestore", "WorkManager"],
     result: {
-      es: "Ocho mecánicas de reto ya implementadas y reproducción real desde Spotify, sin depender de un catálogo de canciones fijo.",
-      en: "Eight challenge mechanics already implemented, with real Spotify playback — no dependency on a fixed song catalog.",
+      es: "Ocho mecánicas de reto ya implementadas, con reproducción real de audio y playlists personalizadas por jugador vía Spotify.",
+      en: "Eight challenge mechanics already implemented, with real audio playback and per-player Spotify playlists.",
     },
     flow: [
       { es: "Eliges tu playlist de Spotify", en: "Pick your Spotify playlist" },
