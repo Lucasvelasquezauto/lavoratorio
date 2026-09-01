@@ -200,18 +200,18 @@ export const projects: Project[] = [
       en: "Radiola: a music game integrated with Spotify",
     },
     short: {
-      es: "Juego híbrido para 2 a 10 personas que convierte listas de Spotify en retos para adivinar canciones, inspirado en la experiencia de las rockolas de los años 90.",
-      en: "A hybrid game for 2 to 10 people that turns Spotify playlists into song-guessing challenges, inspired by the jukebox experience of the 90s.",
+      es: "Juego híbrido para 2 a 10 personas que convierte las propias playlists de Spotify de cada grupo en retos para adivinar canciones, inspirado en la experiencia de las rockolas de los años 90.",
+      en: "A hybrid game for 2 to 10 people that turns each group's own Spotify playlists into song-guessing challenges, inspired by the jukebox experience of the 90s.",
     },
     problem: {
       es: "Quería recrear la mecánica de Rockola, un juego de mesa de los 90, pero con la música real de cada grupo — no un mazo fijo de canciones que pierde interés rápido.",
       en: "I wanted to recreate the mechanics of Rockola, a 90s board game, but with each group's real music — not a fixed deck of songs that quickly loses its appeal.",
     },
     approach: {
-      es: "App nativa de Android en Kotlin con Jetpack Compose, integrada directamente con el SDK de Spotify (Spotify App Remote) para controlar la reproducción real desde las playlists del usuario. Implementé ocho tipos de reto distintos (banda, mímica, dueto, productor, pista, cita, ritmo, canto), cada uno una forma diferente de interactuar con la canción sonando, con Room y Firebase para guardar partidas y sincronizar datos.",
-      en: "A native Android app in Kotlin with Jetpack Compose, wired directly into the Spotify SDK (Spotify App Remote) to control real playback from the user's own playlists. I implemented eight distinct challenge types (band, mime, duet, producer, clue, quote, rhythm, sing) — each a different way to interact with the song playing — with Room and Firebase for saving games and syncing data.",
+      es: "App nativa de Android en Kotlin con Jetpack Compose, con autenticación OAuth contra la Spotify Web API para leer las playlists del usuario. Implementé ocho tipos de reto (banda, mímica, dueto, productor, pista, cita, ritmo, canto). El más complejo fue 'Pégate a la banda': busca la canción actual en el catálogo público de Deezer, la empareja por artista y título filtrando remixes, feats y versiones en vivo que confunden la búsqueda, descarga el preview real en segundo plano y lo reproduce durante exactamente 10 segundos antes de cortarlo. Uso Room y Firebase para guardar partidas y sincronizar datos.",
+      en: "A native Android app in Kotlin with Jetpack Compose, using OAuth authentication against the Spotify Web API to read the user's playlists. I implemented eight challenge types (band, mime, duet, producer, clue, quote, rhythm, sing). The hardest one to build was 'Pégate a la banda' (Join the Band): it looks up the current song in Deezer's public catalog, matches it by artist and title while filtering out remixes, features, and live versions that confuse the search, downloads the real preview in the background, and plays it for exactly 10 seconds before cutting it off. I use Room and Firebase to save games and sync data.",
     },
-    stack: ["Kotlin", "Jetpack Compose", "Spotify App Remote SDK", "Room", "Firebase Firestore", "WorkManager"],
+    stack: ["Kotlin", "Jetpack Compose", "Spotify Web API (OAuth)", "Deezer API (previews)", "Room", "Firebase Firestore", "WorkManager"],
     result: {
       es: "Ocho mecánicas de reto ya implementadas y reproducción real desde Spotify, sin depender de un catálogo de canciones fijo.",
       en: "Eight challenge mechanics already implemented, with real Spotify playback — no dependency on a fixed song catalog.",
