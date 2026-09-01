@@ -5,6 +5,12 @@ export interface FlowStep {
   en: string;
 }
 
+export interface ProjectVideo {
+  src: string;
+  poster: string;
+  label: { es: string; en: string };
+}
+
 export interface Project {
   slug: string;
   category: Category;
@@ -18,6 +24,7 @@ export interface Project {
   ctaType: "reusable" | "specific";
   color: "amber" | "cyan";
   image?: string;
+  videos?: ProjectVideo[];
 }
 
 export const categoryLabels: Record<Category, { es: string; en: string }> = {
@@ -545,6 +552,53 @@ export const projects: Project[] = [
       { es: "Selecciono un tema desde Cockpit", en: "I pick a topic from Cockpit" },
       { es: "Resume en Notion y redacta blog, LinkedIn y X", en: "Summarizes in Notion and drafts blog, LinkedIn, and X copy" },
       { es: "Publica blog y LinkedIn; envía X por Telegram", en: "Publishes blog and LinkedIn; sends X draft via Telegram" },
+    ],
+  },
+  {
+    slug: "poemas-animados-ia-local",
+    category: "exploracion",
+    color: "cyan",
+    ctaType: "specific",
+    image: "/proyectos/animacion-poemas.jpg",
+    videos: [
+      {
+        src: "/proyectos/media/perderte.mp4",
+        poster: "/proyectos/media/poster-perderte.jpg",
+        label: { es: "Al perderte — Ernesto Cardenal", en: "Al perderte — Ernesto Cardenal (poem)" },
+      },
+      {
+        src: "/proyectos/media/buscarte.mp4",
+        poster: "/proyectos/media/poster-buscarte.jpg",
+        label: { es: "No Buscarte — poema propio", en: "No Buscarte — original poem" },
+      },
+    ],
+    title: {
+      es: "Animación de poemas con IA generativa local",
+      en: "Poem animation with local generative AI",
+    },
+    short: {
+      es: "Dos poemas —uno de Ernesto Cardenal, otro propio— convertidos en animaciones verticales mediante interpolación de fotogramas, con narración propia procesada con las herramientas de IA de Adobe.",
+      en: "Two poems—one by Ernesto Cardenal, one of my own—turned into vertical animations through frame interpolation, narrated in my own voice and polished with Adobe's AI audio tools.",
+    },
+    problem: {
+      es: "Los generadores de video por IA en la nube cobran por segundo y limitan la duración de cada clip, lo que hacía inviable animar un poema completo con una narración de más de un minuto sin un costo elevado.",
+      en: "Cloud AI video generators charge per second and cap each clip's length, making it costly to animate a full poem with over a minute of narration.",
+    },
+    approach: {
+      es: "Diseñé el storyboard de cada poema —una secuencia de ilustraciones por escena— con el generador de imágenes de Gemini (Nano Banana). Localmente, en ComfyUI, encadené esas imágenes y usé el nodo FILM VFI (paquete ComfyUI-Frame-Interpolation, checkpoint film_net_fp32) para interpolar los fotogramas de transición entre cada par, agregando tramos de espera al inicio y al final para dar tiempo a la lectura, y exporté la secuencia final con VideoHelperSuite. La narración, grabada con mi propia voz, se procesó con Adobe Enhance Speech para limpiar el audio antes de integrarla al video.",
+      en: "I designed each poem's storyboard—a sequence of scene illustrations—with Gemini's image generator (Nano Banana). Locally, in ComfyUI, I chained those images together and used the FILM VFI node (ComfyUI-Frame-Interpolation package, film_net_fp32 checkpoint) to interpolate the transition frames between each pair, adding hold segments at the start and end to give the narration room to breathe, and exported the final sequence with VideoHelperSuite. The narration, recorded in my own voice, was processed with Adobe Enhance Speech to clean up the audio before combining it with the video.",
+    },
+    stack: ["Gemini (Nano Banana)", "ComfyUI", "ComfyUI-Frame-Interpolation (FILM)", "VideoHelperSuite (VHS)", "Adobe Enhance Speech"],
+    result: {
+      es: "Dos animaciones de 24 y 69 segundos —muy por encima de los límites típicos de los generadores de video en la nube— sin costo de suscripción ni de cómputo en la nube.",
+      en: "Two animations of 24 and 69 seconds—well beyond the typical limits of cloud video generators—with no subscription or cloud compute cost.",
+    },
+    flow: [
+      { es: "Storyboard con Gemini (Nano Banana)", en: "Storyboard designed with Gemini (Nano Banana)" },
+      { es: "Interpolación de fotogramas en ComfyUI (FILM VFI)", en: "Frame interpolation in ComfyUI (FILM VFI)" },
+      { es: "Ensamblado de la secuencia con tramos de espera", en: "Sequence assembled with hold segments" },
+      { es: "Narración propia procesada con Adobe Enhance Speech", en: "Own narration processed with Adobe Enhance Speech" },
+      { es: "Exportación del video final", en: "Final video export" },
     ],
   },
 ];

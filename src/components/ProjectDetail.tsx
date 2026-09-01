@@ -24,25 +24,54 @@ export default function ProjectDetail({ project }: { project: Project }) {
         <p className="text-[var(--lab-muted)] text-lg leading-relaxed">{project.short[lang as Lang]}</p>
       </ScrollReveal>
 
-      {project.image && (
+      {project.videos && project.videos.length > 0 ? (
         <ScrollReveal className="mt-8">
-          <div
-            className="lab-media relative aspect-[2/1] hairline rounded-lg bg-[var(--lab-bg-2)]"
-            style={{ "--accent": accent } as CSSProperties}
-          >
-            <span className="lab-corner lab-corner-tl" />
-            <span className="lab-corner lab-corner-tr" />
-            <span className="lab-corner lab-corner-bl" />
-            <span className="lab-corner lab-corner-br" />
-            <Image
-              src={project.image}
-              alt={project.title[lang as Lang]}
-              fill
-              className="object-contain p-6 transition-transform duration-500 ease-out hover:scale-[1.03]"
-              sizes="(max-width: 768px) 100vw, 768px"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {project.videos.map((video) => (
+              <div key={video.src}>
+                <div
+                  className="lab-media relative aspect-[9/16] hairline rounded-lg bg-[var(--lab-bg-2)] overflow-hidden"
+                  style={{ "--accent": accent } as CSSProperties}
+                >
+                  <span className="lab-corner lab-corner-tl" />
+                  <span className="lab-corner lab-corner-tr" />
+                  <span className="lab-corner lab-corner-bl" />
+                  <span className="lab-corner lab-corner-br" />
+                  <video
+                    src={video.src}
+                    poster={video.poster}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="absolute inset-0 w-full h-full object-contain"
+                  />
+                </div>
+                <p className="lab-tag mt-2 text-center">{video.label[lang as Lang]}</p>
+              </div>
+            ))}
           </div>
         </ScrollReveal>
+      ) : (
+        project.image && (
+          <ScrollReveal className="mt-8">
+            <div
+              className="lab-media relative aspect-[2/1] hairline rounded-lg bg-[var(--lab-bg-2)]"
+              style={{ "--accent": accent } as CSSProperties}
+            >
+              <span className="lab-corner lab-corner-tl" />
+              <span className="lab-corner lab-corner-tr" />
+              <span className="lab-corner lab-corner-bl" />
+              <span className="lab-corner lab-corner-br" />
+              <Image
+                src={project.image}
+                alt={project.title[lang as Lang]}
+                fill
+                className="object-contain p-6 transition-transform duration-500 ease-out hover:scale-[1.03]"
+                sizes="(max-width: 768px) 100vw, 768px"
+              />
+            </div>
+          </ScrollReveal>
+        )
       )}
 
       <ScrollReveal className="mt-10">
