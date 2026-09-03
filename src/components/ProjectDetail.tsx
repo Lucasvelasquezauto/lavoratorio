@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useLang, Lang } from "@/lib/i18n";
 import { Project } from "@/data/projects";
 import FlowDiagram from "./FlowDiagram";
@@ -12,6 +13,21 @@ export default function ProjectDetail({ project }: { project: Project }) {
   const { lang, t } = useLang();
   const accent = project.color === "amber" ? "var(--lab-amber)" : "var(--lab-cyan)";
   const ctaLabel = project.ctaType === "reusable" ? t("ctaReusable") : t("ctaSpecific");
+  const [lightbox, setLightbox] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lightbox]);
 
   return (
     <main className="relative z-10 pt-32 pb-24 px-6 mx-auto max-w-3xl">
@@ -55,9 +71,13 @@ export default function ProjectDetail({ project }: { project: Project }) {
         <ScrollReveal className="mt-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {project.gallery.map((src) => (
-              <div
+              <motion.button
                 key={src}
-                className="lab-media relative aspect-square hairline rounded-lg bg-[var(--lab-bg-2)] overflow-hidden"
+                type="button"
+                layoutId={`gallery-${src}`}
+                onClick={() => setLightbox(src)}
+                aria-label={project.title[lang as Lang]}
+                className="lab-media relative aspect-square hairline rounded-lg bg-[var(--lab-bg-2)] overflow-hidden cursor-zoom-in text-left"
                 style={{ "--accent": accent } as CSSProperties}
               >
                 <span className="lab-corner lab-corner-tl" />
@@ -71,7 +91,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                   className="object-cover transition-transform duration-500 ease-out hover:scale-[1.03]"
                   sizes="(max-width: 768px) 50vw, 256px"
                 />
-              </div>
+              </motion.button>
             ))}
           </div>
         </ScrollReveal>
@@ -142,6 +162,48 @@ export default function ProjectDetail({ project }: { project: Project }) {
           {ctaLabel}
         </Link>
       </ScrollReveal>
+
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            key="lightbox-backdrop"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-10 bg-black/85 backdrop-blur-md"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            onClick={() => setLightbox(null)}
+          >
+            <motion.div
+              layoutId={`gallery-${lightbox}`}
+              transition={{ type: "spring", stiffness: 260, damping: 28, mass: 0.6 }}
+              className="relative w-full max-w-3xl aspect-[3/4] sm:aspect-[4/3] rounded-lg overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={lightbox}
+                alt={project.title[lang as Lang]}
+                fill
+                className="object-contain bg-[var(--lab-bg-2)]"
+                sizes="(max-width: 768px) 100vw, 768px"
+                priority
+              />
+            </motion.div>
+            <motion.button
+              type="button"
+              onClick={() => setLightbox(null)}
+              aria-label="Cerrar"
+              className="absolute top-5 right-5 sm:top-8 sm:right-8 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-2xl leading-none text-white/90 transition hover:bg-black/60 hover:text-white"
+              initial={{ opacity: 0, scale: 0.7 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.7 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
+            >
+              ×
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
