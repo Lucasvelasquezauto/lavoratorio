@@ -628,6 +628,41 @@ export const projects: Project[] = [
       { es: "Exportación del video final", en: "Final video export" },
     ],
   },
+  {
+    slug: "tribuna-sur",
+    category: "agentes",
+    color: "amber",
+    ctaType: "specific",
+    image: "/proyectos/tribuna-sur.jpg",
+    title: {
+      es: "Tribuna Sur — agenda diaria de fútbol con canal de transmisión",
+      en: "Tribuna Sur — a daily football schedule with where to watch",
+    },
+    short: {
+      es: "Aplicación web personal que cada día muestra qué partidos de fútbol hay, si ya terminaron o a qué hora empiezan, y en qué canal o plataforma de streaming se transmiten en Colombia — con favoritos por equipo sin importar el torneo.",
+      en: "A personal web app that shows, every day, which football matches are on, whether they've finished or what time they start, and which TV channel or streaming platform carries them in Colombia — with team favorites that follow across tournaments.",
+    },
+    problem: {
+      es: "Saber qué partidos hay hoy es fácil; saber en qué canal colombiano se transmiten no lo es. Ninguna app deportiva internacional resuelve ese dato para el mercado local, así que terminaba buscándolo a mano, torneo por torneo, cada día.",
+      en: "Knowing which matches are on today is easy; knowing which Colombian channel carries them isn't. No international sports app solves that for the local market, so I ended up looking it up by hand, tournament by tournament, every day.",
+    },
+    approach: {
+      es: "Arquitectura de presupuesto $0: Supabase (Postgres) es la única fuente de verdad, alimentada por jobs de GitHub Actions en horarios escalonados; el frontend nunca llama directamente a una API deportiva ni a un modelo de IA, solo lee la base de datos. football-data.org cubre resultados y horarios de los torneos europeos; para el dato que ninguna API resuelve —el canal de transmisión en Colombia— y para los torneos sin cobertura estructurada (Liga y Copa Betplay, Libertadores, Sudamericana, Europa League), un job descarga texto de fuentes específicas y se lo pasa a Gemini u OpenRouter con un esquema JSON fijo, nunca con 'busca en internet y responde', para evitar que el modelo invente datos. La cobertura de Liga y Copa Betplay resultó ser la más difícil: terminé usando la API de búsqueda Tavily restringida a una lista curada de medios colombianos confiables, con una salvaguarda en base de datos que evita duplicar un partido cuando una fuente lo reporta con una fecha distinta a otra (típico de reprogramaciones). Los escudos de los equipos favoritos se buscan una sola vez, la primera vez que alguien favoritea un equipo, y quedan guardados en Supabase mediante un permiso de escritura acotado a esa sola columna. El frontend es HTML/CSS/JS plano, sin framework ni paso de build, desplegado en Vercel.",
+      en: "$0-budget architecture: Supabase (Postgres) is the single source of truth, fed by staggered GitHub Actions jobs; the frontend never calls a sports API or an AI model directly, it only reads the database. football-data.org covers fixtures and results for the European tournaments; for the piece no API solves — TV channel in Colombia — and for the tournaments with no structured coverage (Liga and Copa Betplay, Libertadores, Sudamericana, Europa League), a job downloads text from specific sources and feeds it to Gemini or OpenRouter with a fixed JSON schema, never open 'search the web and answer,' to keep the model from inventing data. Liga and Copa Betplay turned out to be the hardest to cover: I ended up using the Tavily search API restricted to a curated list of trusted Colombian outlets, with a database safeguard that stops the same match from being saved twice when one source reports a different date than another (typical of reschedules). Favorite teams' crests are looked up once, the first time someone favorites a team, and cached in Supabase through a write permission scoped to that single column. The frontend is plain HTML/CSS/JS, no framework or build step, deployed on Vercel.",
+    },
+    stack: ["Supabase (Postgres)", "GitHub Actions", "football-data.org API", "Gemini", "OpenRouter", "Tavily API", "Playwright", "Vercel"],
+    result: {
+      es: "App en producción con 9 torneos activos, actualización automática varias veces por semana, ventana de favoritos de 14 días y escudos de equipo guardados on-demand — sin ningún método de pago vinculado en ningún proveedor.",
+      en: "A production app covering 9 active tournaments with automatic updates several times a week, a 14-day favorites window, and on-demand team crests — with no payment method linked to any provider.",
+    },
+    flow: [
+      { es: "Jobs programados leen football-data.org y fuentes específicas por torneo", en: "Scheduled jobs read football-data.org and per-tournament sources" },
+      { es: "Gemini u OpenRouter extraen partido, hora y canal en JSON", en: "Gemini or OpenRouter extract match, time, and channel as JSON" },
+      { es: "Todo se guarda en Supabase, la única fuente de verdad", en: "Everything is saved to Supabase, the single source of truth" },
+      { es: "El frontend lee Supabase directamente y muestra el día", en: "The frontend reads Supabase directly and shows the day" },
+      { es: "Favoritos y ajustes se guardan en el navegador", en: "Favorites and settings are saved in the browser" },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
