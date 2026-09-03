@@ -634,6 +634,10 @@ export const projects: Project[] = [
     color: "amber",
     ctaType: "specific",
     image: "/proyectos/tribuna-sur.jpg",
+    gallery: [
+      "/proyectos/media/tribuna-sur-1.jpg",
+      "/proyectos/media/tribuna-sur-2.jpg",
+    ],
     title: {
       es: "Tribuna Sur — agenda diaria de fútbol con canal de transmisión",
       en: "Tribuna Sur — a daily football schedule with where to watch",
