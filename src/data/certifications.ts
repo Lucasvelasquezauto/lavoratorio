@@ -42,4 +42,10 @@ export const certifications: Certification[] = [
     issuer: "Microsoft",
     image: "/certificaciones/ia-generativa-microsoft.jpg",
   },
+  {
+    id: "habilidades-comunicacion",
+    title: "Habilidades de comunicación para conversaciones difíciles",
+    issuer: "CESDE",
+    image: "/certificaciones/habilidades-comunicacion-cesde.jpg",
+  },
 ];
