@@ -48,4 +48,10 @@ export const certifications: Certification[] = [
     issuer: "CESDE",
     image: "/certificaciones/habilidades-comunicacion-cesde.jpg",
   },
+  {
+    id: "ia-generativa-ser-andi",
+    title: "Ruta de formación en inteligencia artificial generativa",
+    issuer: "ANDI / Universidad EAFIT (NODO)",
+    image: "/certificaciones/ruta-ia-generativa-ser-andi.jpg",
+  },
 ];
