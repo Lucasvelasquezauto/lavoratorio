@@ -667,6 +667,55 @@ export const projects: Project[] = [
       { es: "Favoritos y ajustes se guardan en el navegador", en: "Favorites and settings are saved in the browser" },
     ],
   },
+  {
+    slug: "memoria",
+    category: "agentes",
+    color: "amber",
+    ctaType: "specific",
+    image: "/proyectos/memoria.jpg",
+    gallery: [
+      "/proyectos/media/memoria-1.jpg",
+      "/proyectos/media/memoria-2.jpg",
+      "/proyectos/media/memoria-3.jpg",
+    ],
+    title: {
+      es: "Memoria — recordatorios y notas de voz para la familia",
+      en: "Memoria — a voice memory app for the family",
+    },
+    short: {
+      es: "App para Android, en piloto con mi familia, que guarda lo que dictas por voz —personas, fechas, recetas, pendientes— sin que tengas que organizarlo tú: lo clasifica sola, avisa antes de las fechas importantes y manda citas y tareas a Google.",
+      en: "An Android app, piloting with my family, that saves whatever you dictate by voice — people, dates, recipes, to-dos — without you having to organize it: it sorts itself, reminds you before important dates, and sends appointments and tasks to Google.",
+    },
+    problem: {
+      es: "Mis papás tienen las manos ocupadas casi siempre y poca paciencia con apps complicadas. Una nota genérica obliga a escribir, elegir carpeta y acordarse de revisarla; para ellos eso significa que la idea se pierde antes de guardarla.",
+      en: "My parents' hands are usually full, and they have little patience for complicated apps. A generic notes app makes you type, pick a folder, and remember to check it; for them that means the idea is gone before it gets saved.",
+    },
+    approach: {
+      es: "App nativa en Expo/React Native para Android. El gesto principal vive en un widget de pantalla de inicio: un toque abre una tarjeta translúcida nativa (sin cargar la app completa) que graba con expo-speech-recognition y guarda. Supabase (Postgres + Edge Functions en Deno) es la única fuente de verdad; una copia local en SQLite deja la app usable sin conexión. Cada nota se clasifica con un modelo gratuito de Groq (gpt-oss-120b/20b o Qwen3), con reintento automático a Cloudflare Workers AI (Qwen3-30B) si Groq falla por límite de uso, y un 'modo simple' de respaldo si ambos fallan, para que la persona nunca vea un error técnico. Los avisos antes de una fecha importante salen por notificaciones push, y citas y tareas se sincronizan con Google Calendar y Google Tasks. El sistema visual —fondo azul petróleo, un 'orbe' cálido como único acento, tipografías Fraunces y Atkinson Hyperlegible Next— sigue WCAG 2.2 AA con texto grande y toques amplios, pensado para usuarios de 40 a 70 años poco familiarizados con la tecnología.",
+      en: "Native Expo/React Native Android app. The core gesture lives in a home-screen widget: one tap opens a native translucent card (without loading the full app) that records via expo-speech-recognition and saves. Supabase (Postgres + Deno Edge Functions) is the single source of truth; a local SQLite copy keeps the app usable offline. Each note is classified by a free-tier Groq model (gpt-oss-120b/20b or Qwen3), with automatic fallback to Cloudflare Workers AI (Qwen3-30B) if Groq hits its usage limit, and a backup 'simple mode' if both fail, so the person never sees a technical error. Reminders before an important date go out as push notifications, and appointments and tasks sync to Google Calendar and Google Tasks. The visual system — a deep petrol-blue background, a single warm 'orb' accent, Fraunces and Atkinson Hyperlegible Next typefaces — follows WCAG 2.2 AA with large text and generous tap targets, built for 40-to-70-year-old users who aren't comfortable with technology.",
+    },
+    stack: [
+      "Expo / React Native",
+      "Supabase (Postgres + Edge Functions)",
+      "SQLite (offline)",
+      "Groq",
+      "Cloudflare Workers AI",
+      "expo-speech-recognition",
+      "Google Calendar/Tasks API",
+      "Android widgets",
+    ],
+    result: {
+      es: "En piloto familiar desde octubre de 2026: app instalada en el teléfono de mi mamá, con dictado, organización automática y avisos funcionando; costo de operación: $0.",
+      en: "In family pilot since October 2026: installed on my mom's phone, with dictation, automatic organization, and reminders working; operating cost: $0.",
+    },
+    flow: [
+      { es: "Un toque en el widget abre la tarjeta y graba la voz", en: "One tap on the widget opens the card and records your voice" },
+      { es: "expo-speech-recognition transcribe en el teléfono", en: "expo-speech-recognition transcribes on the phone" },
+      { es: "Un modelo de Groq (o Cloudflare si falla) clasifica y organiza la nota", en: "A Groq model (or Cloudflare if it fails) classifies and organizes the note" },
+      { es: "Todo se guarda en Supabase y se cachea en SQLite local", en: "Everything is saved to Supabase and cached in local SQLite" },
+      { es: "Avisos antes de fechas importantes y sincronización con Google", en: "Reminders before important dates and sync with Google" },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
