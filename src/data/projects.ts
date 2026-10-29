@@ -716,6 +716,52 @@ export const projects: Project[] = [
       { es: "Avisos antes de fechas importantes y sincronización con Google", en: "Reminders before important dates and sync with Google" },
     ],
   },
+  {
+    slug: "trading-cripto",
+    category: "analisis",
+    color: "cyan",
+    ctaType: "specific",
+    image: "/proyectos/trading-cripto.jpg",
+    gallery: [
+      "/proyectos/media/trading-cripto-1.jpg",
+      "/proyectos/media/trading-cripto-2.jpg",
+      "/proyectos/media/trading-cripto-3.jpg",
+    ],
+    title: {
+      es: "Simulador de trading en cripto — probar antes de arriesgar dinero real",
+      en: "A crypto trading simulator — testing before risking real money",
+    },
+    short: {
+      es: "Quería invertir en bitcoin y ether de forma activa, no solo comprar y olvidarme. Antes de poner un dólar real, probé varias estrategias contra nueve años de precios reales, descarté las que no funcionaban, y ahora dejo correr sola —todos los días, sin que yo intervenga— la única que sí pasó la prueba, con dinero simulado, para comprobar que funciona también en vivo.",
+      en: "I wanted to invest in bitcoin and ether actively, not just buy and forget. Before putting in a single real dollar, I tested several strategies against nine years of real prices, discarded the ones that didn't work, and now let the one that did pass the test run on its own — every day, with no intervention from me — using simulated money, to confirm it also holds up live.",
+    },
+    problem: {
+      es: "Había descartado quedarme quieto con una inversión a largo plazo: quería operar de forma activa. Pero no quería confiar una decisión de dinero real a una corazonada, ni a lo primero que pareciera funcionar en un par de meses buenos. Necesitaba una forma de separar lo que de verdad funciona de lo que solo se ve bien en retrospectiva, y de comprobarlo en la práctica antes de arriesgar nada.",
+      en: "I'd already ruled out sitting still with a long-term investment: I wanted to trade actively. But I didn't want to trust a real-money decision to a hunch, or to the first thing that looked good over a couple of good months. I needed a way to separate what actually works from what only looks good in hindsight, and to prove it in practice before risking anything.",
+    },
+    approach: {
+      es: "El proyecto se construyó en tres fases con reglas fijadas por escrito antes de ver resultados, para no acomodarlas después. Fase 1 (estudio histórico, 2017–2026, partido en un periodo de diseño y uno de examen que no se toca hasta el final): se probaron cuatro hipótesis con costos reales de Binance (comisión + deslizamiento). Tres se descartaron con los números en la bitácora del proyecto: cobrar la tasa de financiación de los perpetuos (ganaba en el diseño pero se comprimió desde 2025, documentado también en fuentes públicas); una estrategia de ciclo basada en el percentil del MVRV (pasaba la prueba pero operaba solo 2–4 veces en 9 años, muestra insuficiente); y ampliar la estrategia ganadora a las 10 criptos más grandes de 2020 (diluía el resultado frente a quedarse solo con BTC+ETH). También se probó —y se descartó— vender en corto en el perpetuo dentro de la misma estrategia de tendencia: perdía en todas las variantes frente a solo comprar. La que sí pasó —gana al 11% anual de referencia (un CDT en pesos) después de costos, en las dos mitades del periodo de examen y sin su mejor mes— es una estrategia de tendencia: promedio de 8 señales (precio sobre su media de 50, 100 y 200 días; media de 20 sobre la de 100; dirección de las últimas 4, 8 y 13 semanas; ruptura del máximo de 20 días) en BTC y ETH, mitad y mitad, solo compra, rebalanceando si el peso de un activo se desvía 10 puntos de su objetivo. Fase 2 (la que corre hoy): un bot en Python (solo librería estándar, sin dependencias) programado como tarea diaria de Windows descarga el precio de cierre de Binance, calcula las 8 señales y ajusta dos libros simulados de $100 —uno siguiendo la estrategia, otro de referencia con 'mantener BTC+ETH'— con las mismas reglas de ejecución que tendría dinero real: comisión del 0,1%, tamaño mínimo de orden de $5 y pasos de cantidad de Binance. Un tercer libro 'ideal' corre en paralelo con precios de cierre puros, para medir si la práctica en vivo se parece a lo que predijo el estudio histórico. Todo se vuelca en un informe HTML autocontenido (sin backend: se reconstruye cada día desde archivos JSON) que Lucas abre desde un acceso directo en su escritorio, con el estado de los dos libros, una gráfica de su evolución, y una cuenta regresiva con 5 condiciones objetivas —duración mínima, cantidad de ajustes, qué tan cerca va la práctica del libro ideal, puntualidad de las revisiones del bot, y cero errores recientes— que deben cumplirse antes de considerar pasar a dinero real.",
+      en: "The project was built in three phases with rules fixed in writing before seeing any results, so they couldn't be bent afterward to fit them. Phase 1 (historical study, 2017–2026, split into a design period and an untouched test period held back until the end): four hypotheses were tested against real Binance costs (commission + slippage). Three were discarded, with the numbers logged in the project's record: collecting the perpetual futures funding rate (it won in the design period but has compressed since 2025, also documented in public sources); a cycle strategy based on the MVRV percentile (it technically passed but only traded 2–4 times in 9 years — too small a sample to trust); and extending the winning strategy to the 10 largest cryptocurrencies of 2020 (it diluted returns compared to sticking with just BTC+ETH). Shorting the perpetual within the same trend strategy was also tried and dropped — it lost against buy-only in every variant tested. The one that did pass — beating the 11%-a-year reference rate (a peso term deposit) after costs, in both halves of the held-out test period, and even with its best month removed — is a trend-following strategy: the average of 8 signals (price above its 50, 100 and 200-day moving average; 20-day average above the 100-day one; direction over the last 4, 8 and 13 weeks; breakout above the 20-day high) on BTC and ETH, split evenly, buy-only, rebalancing whenever an asset's weight drifts 10 points from its target. Phase 2 (what's running now): a Python bot (standard library only, no dependencies) scheduled as a daily Windows task pulls the Binance closing price, computes the 8 signals, and adjusts two simulated $100 books — one following the strategy, one as a 'hold BTC+ETH' benchmark — under the same execution constraints real money would face: 0.1% commission, a $5 minimum order size, and Binance's quantity steps. A third 'ideal' book runs in parallel on pure closing prices, to measure whether live practice matches what the historical study predicted. Everything feeds a self-contained HTML report (no backend — it's rebuilt every day from JSON files) that Lucas opens from a desktop shortcut, showing both books' status, a chart of how they've moved, and a countdown with 5 objective conditions — minimum duration, number of adjustments made, how closely practice tracks the ideal book, how punctual the bot's reviews have been, and zero recent errors — that all have to be met before even considering a move to real money.",
+    },
+    stack: [
+      "Python (solo librería estándar)",
+      "API histórica de Binance",
+      "Programador de tareas de Windows",
+      "HTML/CSS generado a medida (sin backend)",
+      "MVRV (CoinMetrics) e índice de miedo/codicia (Alternative.me)",
+    ],
+    result: {
+      es: "Día 27 de la práctica (desde el 3 oct 2026): libro de tendencia en $92,06 (-7,9%) contra $90,33 (-9,7%) de mantener BTC+ETH, con 2 de los 5 ajustes necesarios y 2 días para cumplir la duración mínima. La práctica se desvía solo 0,73 puntos del libro ideal (tolerancia: 1,5) y lleva 0 errores en la última semana —las dos señales que de verdad importan antes de considerar dinero real.",
+      en: "Day 27 of practice (running since Oct 3, 2026): the trend book at $92.06 (-7.9%) versus $90.33 (-9.7%) for holding BTC+ETH, with 2 of the 5 required adjustments made and 2 days left to reach the minimum duration. Live practice deviates just 0.73 points from the ideal book (tolerance: 1.5), with zero errors in the past week — the two signals that actually matter before real money is even considered.",
+    },
+    flow: [
+      { es: "La tarea de Windows corre el bot solo, todos los días", en: "A Windows task runs the bot on its own, every day" },
+      { es: "Descarga el cierre real de Binance y calcula las 8 señales de tendencia", en: "Pulls the real Binance close and computes the 8 trend signals" },
+      { es: "Ajusta el libro simulado si el peso se desvía 10 puntos del objetivo", en: "Rebalances the simulated book if weight drifts 10 points from target" },
+      { es: "Compara contra 'mantener BTC+ETH' y contra el libro ideal de precios de cierre", en: "Compares against 'hold BTC+ETH' and against the ideal closing-price book" },
+      { es: "Reconstruye el informe HTML con el estado y la cuenta regresiva a dinero real", en: "Rebuilds the HTML report with status and the countdown to real money" },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
