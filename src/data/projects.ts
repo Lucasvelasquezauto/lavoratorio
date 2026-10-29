@@ -762,6 +762,55 @@ export const projects: Project[] = [
       { es: "Reconstruye el informe HTML con el estado y la cuenta regresiva a dinero real", en: "Rebuilds the HTML report with status and the countdown to real money" },
     ],
   },
+  {
+    slug: "nerve-and-node",
+    category: "agentes",
+    color: "cyan",
+    ctaType: "specific",
+    image: "/proyectos/salvacion-celular.jpg",
+    gallery: [
+      "/proyectos/media/salvacion-celular-1.jpg",
+      "/proyectos/media/salvacion-celular-2.jpg",
+      "/proyectos/media/salvacion-celular-3.jpg",
+    ],
+    title: {
+      es: "Nerve & Node — un negocio de páginas web operado por un equipo de agentes de IA",
+      en: "Nerve & Node — a website business run by a team of AI agents",
+    },
+    short: {
+      es: "Para juntar la plata de un celular nuevo construí, con ayuda de IA, un negocio de verdad: encuentra negocios locales en Estados Unidos, Puerto Rico y Colombia con buenas reseñas en Google pero sin página, les diseña y publica una de verdad con su nombre y sus estrellas, y me prepara el mensaje para preguntarles si les gusta y la compran. Yo le dedico una hora al día; el resto lo hace un equipo de agentes de IA.",
+      en: "To save up for a new phone, I built, with AI, an actual business: it finds local businesses across the US, Puerto Rico and Colombia with good Google reviews but no website, designs and publishes a real one using their own name and star rating, and preps the message asking whether they'd like to buy it. I spend one hour a day on it; a team of AI agents does the rest.",
+    },
+    problem: {
+      es: "Necesitaba juntar USD 2.000 para un celular nuevo, trabajando tiempo completo en otra cosa y con solo una hora libre al día. Un trabajo extra tradicional no alcanzaba: hacía falta un negocio que generara ventas de verdad sin que yo tuviera que estar pendiente de él todo el día.",
+      en: "I needed to raise $2,000 USD for a new phone while working full-time at something else, with only one spare hour a day. A regular side gig wasn't going to cut it — I needed a business that could produce real sales without me watching over it all day.",
+    },
+    approach: {
+      es: "La idea: encontrar negocios locales con buenas reseñas en Google pero sin página, construirles la página antes de pedirles nada, y cambiar la pregunta de \"¿necesito una web?\" a \"¿me quedo con esta?\". Todo corre sobre Claude Code, con cuatro agentes especializados (buscador, redactor, revisor, vendedor) orquestados por comandos que ejecutan la rutina diaria completa: buscar candidatos, escribir y revisar cada ficha, publicarla y armar el panel de envíos. El buscador exploraba Google Maps con Chrome controlado por el agente; se migró a la API de Google Places (con un tope propio de 900 búsquedas al mes para quedar en el nivel gratuito) para filtrar sin gastar tokens de más, y Chrome quedó solo para leer reseñas, señales de dueño latino, e Instagram o Facebook de cada candidato. El generador de páginas arma cada sitio desde una ficha con 9 temas visuales según el tipo de negocio, 3 o 4 variantes de color extraídas del logo real del negocio y tres estilos de portada, en inglés y español, con un \"sello\" giratorio que muestra la calificación real de Google (las estrellas se llenan en la proporción exacta, nunca redondeadas) y reseñas siempre citadas textualmente. Un agente de control de calidad bloquea antes de publicar: frases de plantilla, estructuras típicas de texto hecho por IA (apoyado en una skill de copywriting externa de 216 mil instalaciones, verificada con tres escáneres de seguridad antes de instalarla), emojis, exceso de puntuación, reseñas mal citadas, bajo contraste y diseños repetidos entre negocios vecinos del mismo nicho. Cada demo se publica de verdad en Cloudflare Pages, con aviso de vista previa, antes de escribirle al dueño. El embudo de ventas vive en un panel que arma los mensajes de WhatsApp, Instagram, Facebook y correo listos para enviar con un clic, respetando topes diarios, horarios legales (TCPA en EE.UU., CAN-SPAM para correo, Ley 2300 en Colombia) y rotando nichos y ciudades para no parecer spam; yo abro ese panel, reviso y envío uno por uno —el sistema nunca manda nada solo— y pego las respuestas en Claude para que prepare el siguiente paso. El precio, la oferta y el idioma del primer mensaje (español con señal latina fuerte, inglés si no) se fueron ajustando con datos reales conforme llegaban las primeras respuestas, y cada decisión y su porqué quedan escritos en una bitácora que cualquier sesión nueva lee antes de seguir.",
+      en: "The idea: find local businesses with good Google reviews but no website, build them the site before asking for anything, and turn the question from \"do I need a website?\" into \"do I want to keep this one?\". Everything runs on Claude Code, with four specialized agents (a finder, a writer, a reviewer, a closer) orchestrated by commands that run the full daily routine: find candidates, draft and review each page, publish it, and build the outreach panel. The finder started out browsing Google Maps through an agent-controlled Chrome; it moved to the Google Places API (capped at 900 searches a month to stay on the free tier) to filter candidates without burning tokens, leaving Chrome just for reading reviews, spotting Latino-owner signals, and checking each candidate's Instagram or Facebook. The page generator builds each site from a data file using 9 visual themes by business type, 3-4 color variants pulled from the business's real logo, and three cover styles, in English and Spanish, with a spinning \"seal\" showing the real Google rating (stars fill to the exact proportion, never rounded) and reviews always quoted verbatim. A quality-control agent blocks publication for: template phrasing, the usual tells of AI-written text (backed by an external copywriting skill with 216,000 installs, vetted with three security scanners before installing it), emoji, excess punctuation, misquoted reviews, low contrast, and designs repeated between neighboring businesses in the same niche. Every demo gets genuinely published to Cloudflare Pages, with a preview notice, before the owner ever gets a message. The sales funnel lives in a panel that drafts WhatsApp, Instagram, Facebook and email messages ready to send with one click, respecting daily send caps, legal sending hours (TCPA in the US, CAN-SPAM for email, Colombia's Law 2300), and rotating niches and cities so it never looks like spam; I open that panel, review and send each one by hand — the system never sends anything on its own — and paste replies back to Claude so it can prep the next step. Pricing, the offer, and the first message's language (Spanish with a strong Latino signal, English otherwise) kept getting tuned against real data as the first replies came in, and every decision and its reasoning gets logged so any new session can pick up exactly where it left off.",
+    },
+    stack: [
+      "Claude Code (agentes + skills)",
+      "Python",
+      "Google Places API",
+      "Chrome automatizado",
+      "Cloudflare Pages",
+      "WhatsApp / Instagram / Facebook / Gmail (envío manual)",
+      "PayPal / Bre-B",
+    ],
+    result: {
+      es: "Día 25 de la misión (iniciada el 5 oct 2026): 55 negocios contactados en EE.UU., Puerto Rico y Colombia, 2 respuestas y 2 conversaciones abiertas negociando precio; todavía 0 de las ~6 ventas necesarias para los USD 2.000. El sistema completo —búsqueda, diseño, control de calidad, publicación y panel de envío— corre de punta a punta; ahora se está afinando el mensaje y el precio con los primeros datos reales.",
+      en: "Day 25 of the mission (started Oct 5, 2026): 55 businesses contacted across the US, Puerto Rico and Colombia, 2 replies and 2 open conversations negotiating price; still 0 of the roughly 6 sales needed for the $2,000. The full system — search, design, quality control, publishing and the outreach panel — runs end to end; the message and price are now being tuned against the first real data.",
+    },
+    flow: [
+      { es: "El agente buscador encuentra negocios con buenas reseñas y sin web", en: "The finder agent spots businesses with good reviews and no website" },
+      { es: "El agente redactor escribe la ficha y el generador arma la página con el tema del nicho", en: "The writer agent drafts the content and the generator builds the page in the niche's theme" },
+      { es: "El agente revisor bloquea lo que suena a IA o tiene errores, antes de publicar", en: "The reviewer agent blocks anything that sounds AI-written or has errors, before publishing" },
+      { es: "La página se publica de verdad en Cloudflare, con el nombre y las reseñas reales del negocio", en: "The page gets genuinely published on Cloudflare, with the business's real name and reviews" },
+      { es: "El panel prepara el mensaje; yo lo reviso y lo envío con un clic, uno por uno", en: "The panel drafts the message; I review and send it with one click, one at a time" },
+      { es: "Pego las respuestas en Claude y el agente vendedor prepara el siguiente paso", en: "I paste replies back to Claude and the closer agent preps the next step" },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
