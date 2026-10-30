@@ -811,6 +811,56 @@ export const projects: Project[] = [
       { es: "Pego las respuestas en Claude y el agente vendedor prepara el siguiente paso", en: "I paste replies back to Claude and the closer agent preps the next step" },
     ],
   },
+  {
+    slug: "instagram-ai",
+    category: "agentes",
+    color: "amber",
+    ctaType: "specific",
+    image: "/proyectos/instagram-ai.jpg",
+    gallery: [
+      "/proyectos/media/instagram-ai-1.jpg",
+      "/proyectos/media/instagram-ai-2.jpg",
+      "/proyectos/media/instagram-ai-3.jpg",
+    ],
+    title: {
+      es: "Infraestructura multiagente que investiga, escribe, anima y publica reels",
+      en: "A multi-agent pipeline that researches, writes, animates and publishes reels",
+    },
+    short: {
+      es: "Un sistema que, a partir de un tema, investiga qué funciona de verdad en Instagram, escribe el guion, le pone voz y animación con muñequitos de palitos, y publica el video solo, todos los días, sin que yo tenga que grabar, editar ni estar pendiente — y sin gastar un dólar extra.",
+      en: "A system that, starting from a topic, researches what's actually working on Instagram, writes the script, adds voice and stick-figure animation, and publishes the video on its own, every day, without me having to film, edit or watch over it — and without spending an extra dollar.",
+    },
+    problem: {
+      es: "Hacer contenido bueno y constante para redes toma tiempo que no tenía: investigar qué funciona, escribir un guion que enganche, grabarlo o animarlo, ponerle voz y publicarlo a la hora correcta es trabajo de varias personas. Quería una cuenta de Instagram real, con contenido de calidad real, sin convertirme yo en el cuello de botella de cada video.",
+      en: "Making good, consistent content for social media takes time I didn't have: researching what works, writing a hook that lands, recording or animating it, voicing it and publishing it at the right time is normally several people's job. I wanted a real Instagram account with genuinely good content, without becoming the bottleneck for every single video.",
+    },
+    approach: {
+      es: "Es un sistema multiagente sobre Claude Code con 8 agentes especializados, cada uno con el modelo que le alcanza (Haiku para ejecutar y revisar, Sonnet para escribir y diseñar, Opus solo para la estrategia), encadenados en 10 pasos reproducibles desde un solo orquestador (/ig). El investigador usa Apify para encontrar perfiles referentes del tema por seguidores e interacción, y baja sus reels más atípicos; un analista le pide a Gemini que vea cada video (Claude nunca procesa fotogramas, solo lee el JSON corto que Gemini devuelve) y saca el gancho, la estructura y el estilo de cada uno. Con eso, un estratega en Opus arma un posicionamiento, pilares de contenido y 15-20 ideas con un banco de ganchos propio; un director de arte lee el logo y los colores de la marca y genera un sistema visual completo y replicable (paleta con tres variantes, tipografías, un personaje mascota, reglas de contraste). Ahí entra la parte más vistosa: un guionista en Opus convierte cada idea aprobada en un JSON de escenas (nunca copia frases de los referentes, solo su mecánica), y un motor de animación hecho en Remotion (React) lo renderiza sin diseñar nada a mano: muñequitos de palitos con 15 poses y 8 expresiones, diálogos con globos, diagramas cuyos nodos aparecen justo cuando la voz los nombra, capturas de la página web del negocio con zoom lento, listas, comparaciones y un CTA animado. La voz es una cadena con respaldo: primero un modelo de voz de Gemini (hay tres, cada uno con su propia cuota diaria gratis) con indicaciones de acento y tono, y si falla la pieza entera pasa a un motor local (Qwen3-TTS) para no depender de un solo proveedor; subtítulos palabra por palabra, música de fondo de Freesound elegida según la emoción de la escena (divertido, tenso, emotivo…) y efectos de sonido se agregan en capas automáticas. Un productor revisa una sola imagen de control por pieza en vez de ver el video completo, para no gastar tokens de más. Todo el sistema corre con presupuesto cero: niveles gratuitos de Apify, Gemini, edge-tts, Remotion, Cloudinary (hosting temporal, se borra tras publicar) y la API oficial de Instagram. La publicación final la hace una tarea de Windows programada —sin Claude— que solo sube lo que quedó en estado \"aprobado\", y un ciclo de métricas (guardados y compartidos, que pesan más que los likes) alimenta la siguiente tanda de ideas. Todo queda en archivos planos, así que cualquier sesión nueva retoma exactamente donde iba.",
+      en: "It's a multi-agent system on Claude Code with 8 specialized agents, each running the model it actually needs (Haiku to execute and review, Sonnet to write and design, Opus only for strategy), chained through 10 reproducible steps from a single orchestrator (/ig). The researcher uses Apify to find reference profiles for the topic by followers and engagement, and pulls their most unusual reels; an analyst has Gemini actually watch each video (Claude never processes frames — it only reads the short JSON Gemini returns) and extracts the hook, structure and style of each one. From that, a strategist running on Opus builds a positioning, content pillars and 15-20 ideas with its own hook bank; an art director reads the brand's logo and colors and generates a full, replicable visual system (a palette with three variants, typefaces, a mascot character, contrast rules). That's where the most visible part kicks in: a scriptwriter on Opus turns each approved idea into a scene-by-scene JSON (never copying the references' lines, only their mechanics), and an animation engine built in Remotion (React) renders it with nothing designed by hand: stick figures with 15 poses and 8 expressions, speech-bubble dialogue, diagrams whose nodes appear exactly when the voice names them, slow-zoom screenshots of the business's real website, lists, comparisons and an animated CTA. The voice is a fallback chain: first a Gemini voice model (there are three, each with its own free daily quota) with accent and tone directions, and if it fails the entire piece falls back to a local engine (Qwen3-TTS) so nothing depends on a single provider; word-by-word captions, background music from Freesound picked by the scene's mood (funny, tense, emotional…) and sound effects all get layered in automatically. A producer reviews a single control image per piece instead of watching the full video, to save tokens. The whole system runs on a zero budget: free tiers of Apify, Gemini, edge-tts, Remotion, Cloudinary (temporary hosting, deleted after publishing) and the official Instagram API. The actual publishing is handled by a scheduled Windows task — no Claude involved — that only uploads what's marked \"approved,\" and a metrics loop (saves and shares, which outweigh likes) feeds the next batch of ideas. Everything lives in plain files, so any new session picks up exactly where it left off.",
+    },
+    stack: [
+      "Claude Code (8 agentes + skills)",
+      "Apify",
+      "Gemini (visión + voz)",
+      "Remotion (React)",
+      "edge-tts / Qwen3-TTS",
+      "Cloudinary",
+      "API oficial de Instagram",
+      "Freesound",
+    ],
+    result: {
+      es: "Ya corre de punta a punta en la cuenta real @nerveandnode: 36 piezas producidas y 24 publicadas (reels y carruseles) en el primer mes, con voz, animación, música y subtítulos generados sin tocar una cámara ni un editor, a costo $0. Las métricas (guardados y compartidos antes que likes) ya están alimentando la siguiente tanda de ideas.",
+      en: "It already runs end to end on the real @nerveandnode account: 36 pieces produced and 24 published (reels and carousels) in the first month, with voice, animation, music and captions generated without touching a camera or an editor, at $0 cost. The metrics (saves and shares before likes) are already feeding the next batch of ideas.",
+    },
+    flow: [
+      { es: "El investigador usa Apify para encontrar referentes y sus reels más atípicos del tema", en: "The researcher uses Apify to find reference accounts and their most unusual reels on the topic" },
+      { es: "Un analista le pide a Gemini que vea cada video y saca el gancho y la estructura", en: "An analyst has Gemini watch each video and extracts the hook and structure" },
+      { es: "El estratega en Opus propone posicionamiento, pilares y 15-20 ideas", en: "The Opus-powered strategist proposes positioning, pillars and 15-20 ideas" },
+      { es: "El guionista convierte cada idea en un guion de escenas en JSON", en: "The scriptwriter turns each idea into a scene-by-scene JSON script" },
+      { es: "El motor en Remotion anima palitos, diagramas y capturas con voz, música y subtítulos", en: "The Remotion engine animates stick figures, diagrams and screenshots with voice, music and captions" },
+      { es: "Una tarea de Windows publica sola lo aprobado, y las métricas alimentan la siguiente tanda", en: "A Windows task publishes what's approved on its own, and the metrics feed the next batch" },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
